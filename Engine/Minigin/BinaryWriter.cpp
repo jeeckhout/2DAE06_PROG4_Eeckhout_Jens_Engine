@@ -11,7 +11,7 @@ BinaryWriter::~BinaryWriter()
 	m_File.close();
 }
 
-void BinaryWriter::WriteString(std::string& str)
+void BinaryWriter::WriteString(const std::string& str)
 {
 	m_File.open("Ex1.bin", std::ios::out | std::ios::binary | std::ios::app);
 	if (m_File.is_open())

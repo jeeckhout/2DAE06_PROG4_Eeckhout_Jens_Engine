@@ -43,12 +43,6 @@ void dae::Minigin::Initialize()
 void dae::Minigin::LoadGame() const
 {
 	Locator::Initialize();
-
-	Audio *service = new ConsoleAudio;
-	std::string Music{"./Resources/Music.wav"};
-	service->AddMusic(Music);
-	Locator::Provide(service);
-	service->PlayMusic(0);
 	auto& scene = SceneManager::GetInstance().CreateScene("Demo");
 	auto go = std::make_shared<GameObject>();
 	go->SetTexture("logo.png");
@@ -88,9 +82,9 @@ void dae::Minigin::Run()
 		Locator::Initialize();
 		Audio *service = new ConsoleAudio;
 		std::string Music{"Resources/Music.wav"};
-		service->AddMusic(Music);
 		Locator::Provide(service);
-		service->PlayMusic(0);
+		Locator::GetAudio()->AddMusic(Music);
+		Locator::GetAudio()->PlayMusic(0);
 		bool doContinue = true;
 		while (doContinue)
 		{
@@ -101,6 +95,7 @@ void dae::Minigin::Run()
 			renderer.Render();
 			t = current;
 		}
+		delete service;
 	}
 
 	Cleanup();

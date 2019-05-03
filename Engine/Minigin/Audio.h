@@ -13,8 +13,8 @@ public:
 	virtual void PlayMusic(int SoundID) = 0;
 	virtual void PauseMusic() = 0;
 	virtual void ResumeMusic() = 0;
-	virtual int AddSFX(std::string& fileName) = 0;
-	virtual int AddMusic(std::string& fileName) = 0;
+	virtual int AddSFX(const std::string& fileName) = 0;
+	virtual int AddMusic(const std::string& fileName) = 0;
 };
 
 class ConsoleAudio final : public Audio
@@ -24,10 +24,24 @@ public:
 	{
 		Mix_OpenAudio(MIX_DEFAULT_FREQUENCY,MIX_DEFAULT_FORMAT,2,4096);
 	}
-	~ConsoleAudio() {Mix_CloseAudio();}
+	~ConsoleAudio()
+	{
+		Mix_CloseAudio();
+		for(Mix_Chunk* pChunk : m_pSFX)
+		{
+			Mix_FreeChunk(pChunk);
+			pChunk = nullptr;
+		}
+		for(Mix_Music* pMusic : m_pMusic)
+		{
+			Mix_FreeMusic(pMusic);
+			pMusic = nullptr;
+		}
+
+	}
 	void PlaySound(int SoundID) override
 	{
-		Mix_PlayChannel(2,m_pSFX.at(SoundID),0);
+		Mix_PlayChannel(-1,m_pSFX.at(SoundID),0);
 	}
 	void PauseSound() override
 	{
@@ -61,13 +75,13 @@ public:
 			Mix_ResumeMusic();
 		}
 	};
-	int AddSFX(std::string& fileName) override
+	int AddSFX(const std::string& fileName) override
 	{
 		Mix_Chunk* sfxToAdd = Mix_LoadWAV(fileName.c_str());
 		m_pSFX.push_back(sfxToAdd);
 		return int(m_pSFX.size() - 1);
 	};
-	int AddMusic(std::string& fileName) override
+	int AddMusic(const std::string& fileName) override
 	{
 		Mix_Music* musicToAdd = Mix_LoadMUS(fileName.c_str());
 		m_pMusic.push_back(musicToAdd);
@@ -88,13 +102,13 @@ public:
 	void PlayMusic(int) override{};
 	void PauseMusic() override{};
 	void ResumeMusic() override{};
-	int AddSFX(std::string& fileName) override
+	int AddSFX(const std::string& fileName) override
 	{
 		Mix_Chunk* sfxToAdd = Mix_LoadWAV(fileName.c_str());
 		m_pSFX.push_back(sfxToAdd);
 		return int(m_pSFX.size());
 	};
-	int AddMusic(std::string& fileName) override
+	int AddMusic(const std::string& fileName) override
 	{
 		Mix_Music* musicToAdd = Mix_LoadMUS(fileName.c_str());
 		m_pMusic.push_back(musicToAdd);

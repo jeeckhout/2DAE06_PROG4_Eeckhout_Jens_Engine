@@ -7,15 +7,15 @@ public:
 	BinaryWriter();
 	~BinaryWriter();
 	template <typename T>
-	void Write(T& obj);
-	void WriteString(std::string& str);
+	void Write(const T& obj);
+	void WriteString(const std::string& str);
 private:
 	std::ofstream m_File;
 
 };
 
 template<typename T>
-inline void BinaryWriter::Write(T & obj)
+void BinaryWriter::Write(const T & obj)
 {
 	m_File.open("Ex1.bin", std::ios::out | std::ios::binary | std::ios::app);
 	if (m_File.is_open())
