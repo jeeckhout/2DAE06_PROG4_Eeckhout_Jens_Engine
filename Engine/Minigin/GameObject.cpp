@@ -8,27 +8,27 @@
 
 dae::GameObject::~GameObject()
 {
-	delete test;
-	delete mTexture;
+	for (BaseComponent* pComp : m_pComponents)
+	{
+		delete pComp;
+	}
 };
 
 void dae::GameObject::Update(float deltaTime)
 {
-	test->Update(deltaTime);
-	totalTime += deltaTime;
 	const auto pos = mTransform.GetPosition();
-	mTexture->UpdateTextureData(pos.x,pos.y);
+	for (BaseComponent* pComp : m_pComponents)
+	{
+		pComp->Update(deltaTime,pos.x,pos.y);
+	}
 }
 
 void dae::GameObject::Render() const
 {
-	mTexture->Render();
-	test->Render();
-}
-
-void dae::GameObject::SetTexture(const std::string& filename)
-{
-	mTexture = new TextureComponent(this,filename);
+	for (BaseComponent* pComp : m_pComponents)
+	{
+		pComp->Render();
+	}
 }
 
 void dae::GameObject::SetPosition(float x, float y)
@@ -36,17 +36,7 @@ void dae::GameObject::SetPosition(float x, float y)
 	mTransform.SetPosition(x, y, 0.0f);
 }
 
-void dae::GameObject::InitializeFPS()
+void dae::GameObject::AddComponentToVector(BaseComponent* componentToAdd)
 {
-	test = new FPSComponent{ this };
-}
-
-void dae::GameObject::SetFontFPS(std::shared_ptr<dae::Font> font)
-{
-	test->MakeFont(font);
-}
-
-void dae::GameObject::SetFontFPS(const std::string& fontPath, unsigned fontSize)
-{
-	test->MakeFont(fontPath, fontSize);
+	m_pComponents.push_back(componentToAdd);
 }

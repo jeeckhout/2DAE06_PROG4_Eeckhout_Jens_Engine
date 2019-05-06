@@ -15,7 +15,7 @@ void TextureComponent::Render()
 	dae::Renderer::GetInstance().RenderTexture(*mTexture,textureData);
 }
 
-void TextureComponent::UpdateTextureData(float x, float y, float width, float height)
+void TextureComponent::Update(const float&, float x, float y, float width, float height)
 {
 	textureData.x = int(x);
 	textureData.y = int(y);

@@ -10,8 +10,8 @@ class FPSComponent final : public BaseComponent
 public:
 	FPSComponent(dae::GameObject *parent);
 	~FPSComponent();
-	void Update(float deltaTime) override;
-	void Render() const;
+	void Update(const float& deltaTime, float = 0, float = 0, float = 0, float = 0) override;
+	void Render() override;
 	void MakeFont(const std::string& fontPath, unsigned fontSize);
 	void MakeFont(const std::shared_ptr<dae::Font> font);
 private:

@@ -14,7 +14,7 @@ FPSComponent::~FPSComponent()
 	delete m_TextObj;
 }
 
-void FPSComponent::Update(float deltaTime)
+void FPSComponent::Update(const float& deltaTime, float,float,float,float)
 {
 	int fps = int(1/deltaTime);
 	m_NumFPS = std::to_string(fps);
@@ -22,7 +22,7 @@ void FPSComponent::Update(float deltaTime)
 	m_TextObj->Update(deltaTime);
 }
 
-void FPSComponent::Render() const
+void FPSComponent::Render()
 {
 	m_TextObj->Render();
 }

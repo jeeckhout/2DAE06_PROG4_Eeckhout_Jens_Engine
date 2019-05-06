@@ -11,9 +11,8 @@ class TextureComponent final : public BaseComponent
 {
 public:
 	TextureComponent(dae::GameObject *parent, std::string fileName);
-	void Render();
-	void UpdateTextureData(float x, float y, float width = 0, float height = 0);
-	void Update(float) override{return;};
+	void Render() override;
+	void Update(const float&, float x, float y , float width = 0, float height = 0 ) override;
 
 private:
 	std::shared_ptr<dae::Texture2D> mTexture = nullptr;

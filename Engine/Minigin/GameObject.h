@@ -3,6 +3,8 @@
 #include "Transform.h"
 #include "Texture2D.h"
 #include "SceneObject.h"
+
+class BaseComponent;
 class FPSComponent;
 class TextureComponent;
 
@@ -20,17 +22,11 @@ namespace dae
 		GameObject& operator=(GameObject&& other) = delete;
 		void Update(float deltaTime) override;
 		void Render() const override;
-		void SetTexture(const std::string& filename);
 		void SetPosition(float x, float y);
-		void InitializeFPS();
-		void SetFontFPS(std::shared_ptr<Font> font);
-		void SetFontFPS(const std::string& fontPath, unsigned fontSize);
+		void AddComponentToVector(BaseComponent* componentToAdd);
 
 	private:
 		Transform mTransform;
-		TextureComponent* mTexture{nullptr};
-		float totalTime{};
-		FPSComponent* test{};
-
+		std::vector<BaseComponent*> m_pComponents; 
 	};
 }

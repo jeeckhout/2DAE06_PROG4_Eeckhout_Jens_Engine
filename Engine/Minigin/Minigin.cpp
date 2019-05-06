@@ -12,6 +12,8 @@
 #include "TextObject.h"
 #include "GameObject.h"
 #include "Scene.h"
+#include "FPSComponent.h"
+#include "TextureComponent.h"
 
 
 void dae::Minigin::Initialize()
@@ -45,11 +47,13 @@ void dae::Minigin::LoadGame() const
 	Locator::Initialize();
 	auto& scene = SceneManager::GetInstance().CreateScene("Demo");
 	auto go = std::make_shared<GameObject>();
-	go->SetTexture("logo.png");
+	auto text = new TextureComponent{go.get(),"logo.png"};
+	go->AddComponentToVector(text);
 	auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
+	auto test = new FPSComponent{go.get()};
+	test->MakeFont(font);
+	go->AddComponentToVector(test);
 	go->SetPosition(216, 180);
-	go->InitializeFPS();
-	go->SetFontFPS(font);
 	scene.Add(go);
 
 	

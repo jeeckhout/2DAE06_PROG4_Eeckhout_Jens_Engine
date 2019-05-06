@@ -50,6 +50,17 @@ public:
 			Mix_Pause(1);
 		}
 	};
+	void SetVolumeSFX(int value)
+	{
+		for(Mix_Chunk* chunk : m_pSFX)
+		{
+			Mix_VolumeChunk(chunk,value);
+		}
+	}
+	void SetVolumeMusic(int value)
+	{
+		Mix_VolumeMusic(value);
+	}
 	void ResumeSound() override
 	{
 		if (Mix_Paused(1) != 0)
