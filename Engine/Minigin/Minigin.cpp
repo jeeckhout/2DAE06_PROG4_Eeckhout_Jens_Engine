@@ -92,6 +92,7 @@ void dae::Minigin::Run()
 		bool doContinue = true;
 		while (doContinue)
 		{
+			input.CheckControllers();
 			auto current = std::chrono::high_resolution_clock::now();
 			float deltaTime(std::chrono::duration<float>(current - t).count());
 			doContinue = input.ProcessInput();

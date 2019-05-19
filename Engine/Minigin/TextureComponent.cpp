@@ -1,5 +1,6 @@
 #include "MiniginPCH.h"
 #include "TextureComponent.h"
+#include "Texture2D.h"
 #include "ResourceManager.h"
 #include "Renderer.h"
 #include "SDL.h"

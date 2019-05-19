@@ -1,9 +1,6 @@
 #pragma once
 #include "BaseComponent.h"
 #include "TextObject.h"
-class dae::GameObject;
-class dae::Font;
-class Texture2D;
 
 class FPSComponent final : public BaseComponent 
 {
@@ -14,6 +11,12 @@ public:
 	void Render() override;
 	void MakeFont(const std::string& fontPath, unsigned fontSize);
 	void MakeFont(const std::shared_ptr<dae::Font> font);
+
+	 FPSComponent(const  FPSComponent& other) = delete;
+	 FPSComponent( FPSComponent&& other) = delete;
+	 FPSComponent& operator=(const  FPSComponent& other) = delete;
+	 FPSComponent& operator=(const  FPSComponent&& other) = delete;
+
 private:
 	std::string m_NumFPS{};
 	std::shared_ptr<dae::Font> m_Font{ nullptr };

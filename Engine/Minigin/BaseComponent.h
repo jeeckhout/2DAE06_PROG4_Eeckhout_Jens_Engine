@@ -16,7 +16,7 @@ public:
 	BaseComponent& operator=(const BaseComponent&& other) = delete;
 	const dae::GameObject& getParent() const;
 
-private:
+protected:
 	dae::GameObject* m_pParent;
 };
 
