@@ -35,12 +35,10 @@ bool dae::InputManager::ProcessInput()
 	return  true;
 }
 	
-Command* dae::InputManager::HandleInput()
+Command* dae::InputManager::HandleInput(int controllerID)
 {
-	for(int i = 0; i < m_ActiveControllers; ++i)
-	{
 		RtlZeroMemory(&m_State, sizeof(XINPUT_STATE));
-		if (XInputGetState(i, &m_State) == ERROR_SUCCESS)
+		if (XInputGetState(controllerID, &m_State) == ERROR_SUCCESS)
 		{
 		}
 		else
@@ -64,7 +62,6 @@ Command* dae::InputManager::HandleInput()
 		{
 			return ButtonY_Cmd;
 		}
-	}
 	return DefaultCommand;
 }
 

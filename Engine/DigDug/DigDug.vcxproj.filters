@@ -13,9 +13,60 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="States">
+      <UniqueIdentifier>{51348f6c-367c-4f1b-8e1d-a5dbff6e5ee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States\Headers">
+      <UniqueIdentifier>{5ef75a0b-e477-497c-96bb-b1afe1d095dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States\Source">
+      <UniqueIdentifier>{95332dc4-f863-4a74-a32c-8dbd0fda9b23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands">
+      <UniqueIdentifier>{278bd7e1-9ea9-41ea-b0f1-e50dd7b1aca3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Headers">
+      <UniqueIdentifier>{74422f11-ea39-4a2d-b53b-384bae82f5c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Source">
+      <UniqueIdentifier>{d586c0d0-75e2-482e-965f-fe9bd594da4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackState.h">
+      <Filter>States\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="HitState.h">
+      <Filter>States\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="IdleState.h">
+      <Filter>States\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="MovingState.h">
+      <Filter>States\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="PumpingState.h">
+      <Filter>States\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="UpCommand.h">
+      <Filter>Commands\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="DownCommand.h">
+      <Filter>Commands\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="LeftCommand.h">
+      <Filter>Commands\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="RightCommand.h">
+      <Filter>Commands\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackCommand.h">
+      <Filter>Commands\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="IdleCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -24,6 +75,39 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DigDug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackState.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="HitState.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="IdleState.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MovingState.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PumpingState.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="UpCommand.cpp">
+      <Filter>Commands\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="DownCommand.cpp">
+      <Filter>Commands\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="LeftCommand.cpp">
+      <Filter>Commands\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RightCommand.cpp">
+      <Filter>Commands\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackCommand.cpp">
+      <Filter>Commands\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="IdleCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

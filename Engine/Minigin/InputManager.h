@@ -21,7 +21,7 @@ namespace dae
 	{
 	public:
 		bool ProcessInput();
-		Command* HandleInput();
+		Command* HandleInput(int controllerID);
 		bool IsPressed(ControllerButton button) const;
 		void AssignCommand(Command* command, ControllerButton buttonToAssign);
 		void CheckControllers();

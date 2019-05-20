@@ -1,5 +1,6 @@
 #pragma once
-namespace dae {
+namespace dae
+{
 	class GameObject;
 }
 
@@ -7,6 +8,8 @@ namespace dae {
 class BaseState
 {
 public:
+
+	BaseState() = default;
 	virtual ~BaseState() = default;
 	virtual void HandleInput(dae::GameObject& player) = 0;
 	virtual void Update(dae::GameObject& player) = 0;

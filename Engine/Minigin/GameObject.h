@@ -1,8 +1,7 @@
 #pragma once
-#include <memory>
 #include "Transform.h"
-#include "Texture2D.h"
 #include "SceneObject.h"
+#include "vector"
 
 class BaseComponent;
 class FPSComponent;

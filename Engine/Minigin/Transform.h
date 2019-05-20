@@ -1,16 +1,19 @@
 #pragma once
-#pragma warning(push)
-#pragma warning (disable:4201)
-#include <glm/vec3.hpp>
-#pragma warning(pop)
-
 namespace dae
 {
+	struct float3
+	{
+		float x{};
+		float y{};
+		float z{};
+	};
+
+
 	class Transform final
 	{
-		glm::vec3 mPosition;
+		float3 mPosition{};
 	public:
-		const glm::vec3& GetPosition() const { return mPosition; }
+		const float3& GetPosition() const { return mPosition; }
 		void SetPosition(float x, float y, float z);
 	};
 }

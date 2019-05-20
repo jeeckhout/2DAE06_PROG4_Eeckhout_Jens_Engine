@@ -1,24 +1,10 @@
-﻿  MiniginPCH.cpp
-  BaseComponent.cpp
-  BinaryReader.cpp
-  BinaryWriter.cpp
-  Font.cpp
-  FPSComponent.cpp
+﻿  BaseComponent.cpp
   GameObject.cpp
+  InputComponent.cpp
   InputManager.cpp
-  Locator.cpp
-  Log.cpp
-  Main.cpp
   Minigin.cpp
-  Renderer.cpp
-  ResourceManager.cpp
   Scene.cpp
-  SceneManager.cpp
   StateComponent.cpp
-  TextObject.cpp
-  Texture2D.cpp
-  TextureComponent.cpp
-  Transform.cpp
   Generating Code...
   Minigin.vcxproj -> E:\Documents\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\x64\Debug\Minigin.lib
   E:\Documents\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\3rdParty\SDL2\lib\x64\SDL2.dll
