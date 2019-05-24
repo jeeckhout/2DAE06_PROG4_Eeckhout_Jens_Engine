@@ -4,6 +4,7 @@
 #include "Renderer.h"
 #include "FPSComponent.h"
 #include "TextureComponent.h"
+#include "InputComponent.h"
 #include "Font.h"
 
 dae::GameObject::~GameObject()
@@ -34,6 +35,11 @@ void dae::GameObject::Render() const
 void dae::GameObject::SetPosition(float x, float y)
 {
 	mTransform.SetPosition(x, y, 0.0f);
+}
+
+const dae::float3& dae::GameObject::GetPosition()
+{
+	return mTransform.GetPosition();
 }
 
 void dae::GameObject::AddComponentToVector(BaseComponent* componentToAdd)

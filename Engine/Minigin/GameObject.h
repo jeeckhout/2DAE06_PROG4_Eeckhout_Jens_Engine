@@ -22,6 +22,7 @@ namespace dae
 		void Update(float deltaTime) override;
 		void Render() const override;
 		void SetPosition(float x, float y);
+		const float3& GetPosition();
 		void AddComponentToVector(BaseComponent* componentToAdd);
 
 	private:

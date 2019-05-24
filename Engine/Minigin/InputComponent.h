@@ -11,14 +11,14 @@ enum class PlayerType
 class InputComponent final : public BaseComponent
 {
 public:
-	InputComponent(dae::GameObject *parent);
+	InputComponent(dae::GameObject *parent, int ID, PlayerType type);
 	~InputComponent();
 	void Update(const float& deltaTime, float x, float y, float width, float height) override;
-	void Render() override = 0;
+	void Render() override{;};
 
 private:
-	int controllerID;
-	PlayerType type;
+	int m_ControllerID;
+	PlayerType m_Type;
 	Command* triggeredCommand;
 };
 

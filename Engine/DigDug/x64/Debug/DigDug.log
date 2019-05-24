@@ -1,14 +1,2 @@
-﻿  AttackCommand.cpp
-  AttackState.cpp
-  DownCommand.cpp
-  HitState.cpp
-  IdleCommand.cpp
-  IdleState.cpp
-  LeftCommand.cpp
-  MovingState.cpp
-  PumpingState.cpp
-  RightCommand.cpp
-  UpCommand.cpp
-  Generating Code...
-  LINK : E:\Documents\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\x64\Debug\DigDug.exe not found or not built by the last incremental link; performing full link
+﻿  Minigin.cpp
   DigDug.vcxproj -> E:\Documents\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\x64\Debug\DigDug.exe

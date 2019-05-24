@@ -62,6 +62,23 @@ Command* dae::InputManager::HandleInput(int controllerID)
 		{
 			return ButtonY_Cmd;
 		}
+		if (IsPressed(ControllerButton::DpadRight))
+		{
+			return DPadRight_Cmd;
+		}
+		if (IsPressed(ControllerButton::DpadLeft))
+		{
+			return DPadLeft_Cmd;
+		}
+		if (IsPressed(ControllerButton::DpadUp))
+		{
+			return DPadUp_Cmd;
+		}
+		if (IsPressed(ControllerButton::DpadDown))
+		{
+			return DPadDown_Cmd;
+		}
+
 	return DefaultCommand;
 }
 
@@ -109,6 +126,22 @@ void dae::InputManager::AssignCommand(Command* command, ControllerButton buttonT
 
 		case ControllerButton::ButtonY:
 			ButtonY_Cmd = command;
+			break;
+
+		case ControllerButton::DpadUp:
+			DPadUp_Cmd = command;
+			break;
+
+		case ControllerButton::DpadDown:
+			DPadDown_Cmd = command;
+			break;
+
+		case ControllerButton::DpadLeft:
+			DPadLeft_Cmd = command;
+			break;
+
+		case ControllerButton::DpadRight:
+			DPadRight_Cmd = command;
 			break;
 
 		default:;

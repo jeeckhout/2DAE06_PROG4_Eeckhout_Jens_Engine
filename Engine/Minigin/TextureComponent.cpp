@@ -20,6 +20,9 @@ void TextureComponent::Update(const float&, float x, float y, float width, float
 {
 	textureData.x = int(x);
 	textureData.y = int(y);
-	textureData.w = int(width);
-	textureData.h = int(height);
+	if (width != 0 && height != 0)
+	{
+		textureData.w = int(width);
+		textureData.h = int(height);
+	}
 }

@@ -1,6 +1,7 @@
 #include "MiniginPCH.h"
 #include "SceneManager.h"
 #include "Scene.h"
+#include "../DigDug/DigDugScene.h"
 
 
 void dae::SceneManager::Update(float deltaTime)
@@ -19,9 +20,23 @@ void dae::SceneManager::Render()
 	}
 }
 
-dae::Scene& dae::SceneManager::CreateScene(const std::string& name)
+void dae::SceneManager::CreateScene(const std::string& name,SceneType type)
 {
-	const auto scene = std::shared_ptr<Scene>(new Scene(name));
+	std::shared_ptr<Scene> scene{};
+	switch (type) 
+	{
+	case SceneType::Standard:
+		scene = std::shared_ptr<Scene>(new Scene(name));
+		break;
+
+	case SceneType::DigDugLevel1:
+		scene = std::shared_ptr<Scene>(new DigDugScene(name));
+		break;
+
+	default:
+		scene = std::shared_ptr<Scene>(new Scene(name));
+		break;
+	}
+	scene->Initialize();
 	mScenes.push_back(scene);
-	return *scene;
 }

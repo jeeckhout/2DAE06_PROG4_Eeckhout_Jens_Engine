@@ -5,5 +5,6 @@ class RightCommand final : public Command
 public:
 	RightCommand();
 	~RightCommand();
+	void Execute(dae::GameObject* player, PlayerType, const float& deltaTime) override;
 };
 
