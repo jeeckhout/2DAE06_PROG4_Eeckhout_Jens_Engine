@@ -6,6 +6,6 @@ class UpCommand final : public Command
 public:
 	UpCommand();
 	~UpCommand();
-	void Execute(dae::GameObject* player, PlayerType, const float& deltaTime) override;
+	void Execute(dae::GameObject* player, ObjectType, const float& deltaTime) override;
 };
 

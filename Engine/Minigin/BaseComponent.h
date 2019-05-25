@@ -1,5 +1,6 @@
 #pragma once
-namespace dae {
+namespace dae 
+{
 	class GameObject;
 }
 

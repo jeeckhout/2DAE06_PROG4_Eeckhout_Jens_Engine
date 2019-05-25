@@ -11,9 +11,11 @@ class TextureComponent final : public BaseComponent
 {
 public:
 	TextureComponent(dae::GameObject *parent, std::string fileName);
+	~TextureComponent();
 	void Render() override;
 	void Update(const float&, float x, float y , float width = 0, float height = 0 ) override;
-
+	void ChangeTexture(std::string fileName);
+	SDL_Rect* GetTextureData();
 	TextureComponent(const TextureComponent& other) = delete;
 	TextureComponent(TextureComponent&& other) = delete;
 	TextureComponent& operator=(const TextureComponent& other) = delete;
@@ -21,6 +23,6 @@ public:
 
 private:
 	std::shared_ptr<dae::Texture2D> mTexture = nullptr;
-	SDL_Rect textureData{};
+	SDL_Rect* textureData{};
 };
 

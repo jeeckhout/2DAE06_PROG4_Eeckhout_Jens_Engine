@@ -84,28 +84,28 @@ Command* dae::InputManager::HandleInput(int controllerID)
 
 bool dae::InputManager::IsPressed(ControllerButton button) const
 {
-	switch (button)
-	{
-	case ControllerButton::ButtonA:
-		return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_A;
-	case ControllerButton::ButtonB:
-		return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_B;
-	case ControllerButton::ButtonX:
-		return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_X;
-	case ControllerButton::ButtonY:
-		return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_Y;
-	case ControllerButton::DpadDown:
-		return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN;
-	case ControllerButton::DpadUp:
-		return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP;
-	case ControllerButton::DpadLeft:
-		return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT;
-	case ControllerButton::DpadRight:
-		return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT;
-	case ControllerButton::Start:
-		return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_START;
-	default: return false;
-	}
+		switch (button)
+		{
+		case ControllerButton::ButtonA:
+			return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_A;
+		case ControllerButton::ButtonB:
+			return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_B;
+		case ControllerButton::ButtonX:
+			return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_X;
+		case ControllerButton::ButtonY:
+			return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_Y;
+		case ControllerButton::DpadDown:
+			return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN;
+		case ControllerButton::DpadUp:
+			return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP;
+		case ControllerButton::DpadLeft:
+			return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT;
+		case ControllerButton::DpadRight:
+			return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT;
+		case ControllerButton::Start:
+			return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_START;
+		}
+	return false;
 }
 
 void dae::InputManager::AssignCommand(Command* command, ControllerButton buttonToAssign)

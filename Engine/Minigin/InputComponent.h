@@ -2,7 +2,7 @@
 #include "BaseComponent.h"
 
 class Command;
-enum class PlayerType
+enum class ObjectType
 {
 	Player,
 	Fygar
@@ -11,14 +11,14 @@ enum class PlayerType
 class InputComponent final : public BaseComponent
 {
 public:
-	InputComponent(dae::GameObject *parent, int ID, PlayerType type);
+	InputComponent(dae::GameObject *parent, int ID, ObjectType type);
 	~InputComponent();
 	void Update(const float& deltaTime, float x, float y, float width, float height) override;
 	void Render() override{;};
 
 private:
 	int m_ControllerID;
-	PlayerType m_Type;
+	ObjectType m_Type;
 	Command* triggeredCommand;
 };
 

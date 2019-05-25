@@ -5,6 +5,6 @@ class LeftCommand final : public Command
 public:
 	LeftCommand();
 	~LeftCommand();
-	void Execute(dae::GameObject* player, PlayerType, const float& deltaTime) override;
+	void Execute(dae::GameObject* player, ObjectType, const float& deltaTime) override;
 };
 

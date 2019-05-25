@@ -3,7 +3,7 @@
 #include "InputManager.h"
 #include "Commands.h"
 
-InputComponent::InputComponent(dae::GameObject *parent, int ID, PlayerType type) 
+InputComponent::InputComponent(dae::GameObject *parent, int ID, ObjectType type) 
 : BaseComponent(parent),
 m_ControllerID(ID),
 m_Type{type}
