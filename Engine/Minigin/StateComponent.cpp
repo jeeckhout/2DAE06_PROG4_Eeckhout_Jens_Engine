@@ -3,15 +3,20 @@
 #include "BaseState.h"
 
 
-StateComponent::StateComponent(dae::GameObject* parent, BaseState* pDefaultState) : BaseComponent(parent)
+StateComponent::StateComponent(dae::GameObject* parent, BaseState* pDefaultState, BaseState* pDefaultAimState) 
+:  BaseComponent(parent)
+,pState(pDefaultState)
+,pAimState(pDefaultAimState)
 {
-	pState = pDefaultState;
 }
 
 StateComponent::~StateComponent()
 {
 	delete pState;
 	pState = nullptr;
+
+	delete pAimState;
+	pAimState = nullptr;
 }
 
 BaseState* StateComponent::GetState() const
@@ -19,7 +24,16 @@ BaseState* StateComponent::GetState() const
 	return pState;
 }
 
-void StateComponent::Update(const float&, float, float, float, float)
+void StateComponent::SetState(BaseState* newState)
 {
-	pState->Update(*m_pParent);
+	delete pState;
+	pState = nullptr;
+	pState = newState;
+}
+
+void StateComponent::SetAimState(BaseState* newState)
+{
+	delete pAimState;
+	pAimState = nullptr;
+	pAimState = newState;
 }

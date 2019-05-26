@@ -1,2 +1,26 @@
-﻿  DigDugScene.cpp
+﻿  pch.cpp
+  AttackCommand.cpp
+  AttackState.cpp
+  Block.cpp
+  DigDugScene.cpp
+  DownCommand.cpp
+  Grid.cpp
+  HitState.cpp
+  IdleCommand.cpp
+  IdleState.cpp
+  LeftCommand.cpp
+  LookDownState.cpp
+  LookLeftState.cpp
+  LookRightState.cpp
+  LookUpState.cpp
+  Main.cpp
+  Minigin.cpp
+  MovingState.cpp
+  PumpingState.cpp
+  RightCommand.cpp
+  StopAttackCommand.cpp
+  Generating Code...
+  Compiling...
+  UpCommand.cpp
+  Generating Code...
   DigDug.vcxproj -> E:\Documents\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\x64\Debug\DigDug.exe

@@ -19,7 +19,10 @@ TextureComponent::~TextureComponent()
 
 void TextureComponent::Render()
 {
-	dae::Renderer::GetInstance().RenderTexture(*mTexture,*textureData);
+	if (m_ShouldRender)
+	{
+		dae::Renderer::GetInstance().RenderTexture(*mTexture,*textureData);
+	}
 }
 
 void TextureComponent::Update(const float&, float x, float y, float width, float height)
@@ -36,6 +39,11 @@ void TextureComponent::Update(const float&, float x, float y, float width, float
 void TextureComponent::ChangeTexture(std::string fileName)
 {
 	mTexture = dae::ResourceManager::GetInstance().LoadTexture(fileName);
+}
+
+void TextureComponent::DeactivateRendering()
+{
+	m_ShouldRender = false;
 }
 
 SDL_Rect* TextureComponent::GetTextureData()

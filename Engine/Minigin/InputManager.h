@@ -33,6 +33,7 @@ namespace dae
 		bool IsPressed(ControllerButton button) const;
 		void AssignCommand(Command* command, ControllerButton buttonToAssign);
 		void CheckControllers();
+		void SetAReleasedCommand(Command* cmd);
 	private:
 		XINPUT_STATE m_State{};
 		Command* DefaultCommand{};
@@ -40,12 +41,14 @@ namespace dae
 		Command* ButtonX_Cmd{};
 		Command* ButtonY_Cmd{};
 		Command* ButtonB_Cmd{};
-
+		Command* ButtonAReleased_Cmd{};
 		Command* DPadUp_Cmd{};
 		Command* DPadDown_Cmd{};
 		Command* DPadLeft_Cmd{};
 		Command* DPadRight_Cmd{};
 		int m_ActiveControllers{};
+
+		bool m_IsAPressed{false};
 	};
 
 }

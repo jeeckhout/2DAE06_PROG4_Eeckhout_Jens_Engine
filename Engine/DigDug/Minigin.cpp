@@ -19,6 +19,7 @@
 #include "DownCommand.h"
 #include "LeftCommand.h"
 #include "AttackCommand.h"
+#include "StopAttackCommand.h"
 
 
 void dae::Minigin::Initialize()
@@ -44,6 +45,8 @@ void dae::Minigin::Initialize()
 	cmdLeft = new LeftCommand{};
 	cmdUp = new UpCommand{};
 	cmdDown = new DownCommand{};
+	cmdAttack = new AttackCommand{};
+	cmdStopAttack = new StopAttackCommand{};
 	Renderer::GetInstance().Init(window);
 }
 
@@ -57,6 +60,8 @@ void dae::Minigin::LoadGame() const
 	InputManager::GetInstance().AssignCommand(cmdLeft,ControllerButton::DpadLeft);
 	InputManager::GetInstance().AssignCommand(cmdDown,ControllerButton::DpadDown);
 	InputManager::GetInstance().AssignCommand(cmdUp,ControllerButton::DpadUp);
+	InputManager::GetInstance().AssignCommand(cmdAttack,ControllerButton::ButtonA);
+	InputManager::GetInstance().SetAReleasedCommand(cmdStopAttack);
 	SceneManager::GetInstance().CreateScene("Demo",SceneType::DigDugLevel1);
 }
 
@@ -74,7 +79,10 @@ void dae::Minigin::Cleanup()
 	cmdUp = nullptr;
 	delete cmdDown;
 	cmdDown = nullptr;
-	
+	delete cmdAttack;
+	cmdAttack = nullptr;
+	delete cmdStopAttack;
+	cmdStopAttack = nullptr;
 	SDL_Quit();
 }
 

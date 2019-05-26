@@ -8,6 +8,11 @@
 #include "Grid.h"
 #include "CollisionComponent.h"
 #include "TypeComponent.h"
+#include "PookaComponent.h"
+#include "FygarComponent.h"
+#include "StateComponent.h"
+#include "IdleState.h"
+#include "LookRightState.h"
 
 
 DigDugScene::DigDugScene(const std::string& name) : Scene{name}
@@ -56,22 +61,7 @@ void DigDugScene::Initialize()
 
 		DoLevelDesign();
 
-	for (auto Object : ObjectsToAdd)
-	{
-		CollisionComponent* blockCollision = new CollisionComponent{Object.get()};
-		TypeComponent* blockType = new TypeComponent{Object.get(),GameObjectType::Block};
-		if (Player1)
-		{
-			blockCollision->SetObjectsToCheck(Player1.get());
-		}
-		if(Player2)
-		{
-			blockCollision->SetObjectsToCheck(Player2.get());
-		}
-		Object->AddComponentToVector(blockCollision);
-		Object->AddComponentToVector(blockType);
-
-	}
+	
 }
 
 void DigDugScene::CreateCoop()
@@ -80,10 +70,12 @@ void DigDugScene::CreateCoop()
 	auto text = new TextureComponent{Player1.get(),"PlayerSprite.png"};
 	auto input = new InputComponent{Player1.get(),0,ObjectType::Player};
 	auto type = new TypeComponent{Player1.get(),GameObjectType::Player};
+	auto state = new StateComponent{Player1.get(), new IdleState{}, new LookRightState{}};
 	text->Update(0,0,0,25,25);
 	Player1->AddComponentToVector(text);
 	Player1->AddComponentToVector(type);
 	Player1->AddComponentToVector(input);
+	Player1->AddComponentToVector(state);
 	Player1->SetPosition(0,0);
 	this->Add(Player1);
 	
@@ -91,10 +83,12 @@ void DigDugScene::CreateCoop()
 	auto text2 = new TextureComponent{Player2.get(),"PlayerSprite.png"};
 	auto input2 = new InputComponent{Player2.get(),1,ObjectType::Player};
 	auto type2 = new TypeComponent{Player2.get(),GameObjectType::Player};
+	auto state2 = new StateComponent{Player2.get(), new IdleState{}, new LookRightState{}};
 	text2->Update(0,0,0,25,25);
 	Player2->AddComponentToVector(text2);
 	Player2->AddComponentToVector(input2);
 	Player2->AddComponentToVector(type2);
+	Player2->AddComponentToVector(state2);
 	Player2->SetPosition(600, 0);
 	this->Add(Player2);
 }
@@ -105,10 +99,12 @@ void DigDugScene::CreateSingle()
 	auto text = new TextureComponent{Player1.get(),"PlayerSprite.png"};
 	auto input = new InputComponent{Player1.get(),0,ObjectType::Player};
 	auto type = new TypeComponent{Player1.get(),GameObjectType::Player};
+	auto state = new StateComponent{Player1.get(), new IdleState{}, new LookRightState{}};
 	text->Update(0,0,0,25,25);
 	Player1->AddComponentToVector(text);
 	Player1->AddComponentToVector(type);
 	Player1->AddComponentToVector(input);
+	Player1->AddComponentToVector(state);
 	Player1->SetPosition(0,0);
 	this->Add(Player1);
 }
@@ -119,10 +115,12 @@ void DigDugScene::CreateVersus()
 	auto text = new TextureComponent{Player1.get(),"PlayerSprite.png"};
 	auto input = new InputComponent{Player1.get(),0,ObjectType::Player};
 	auto type = new TypeComponent{Player1.get(),GameObjectType::Player};
+	auto state = new StateComponent{Player1.get(), new IdleState{}, new LookRightState{}};
 	text->Update(0,0,0,25,25);
 	Player1->AddComponentToVector(text);
 	Player1->AddComponentToVector(type);
 	Player1->AddComponentToVector(input);
+	Player1->AddComponentToVector(state);
 	Player1->SetPosition(0,0);
 	this->Add(Player1);
 	
@@ -130,6 +128,7 @@ void DigDugScene::CreateVersus()
 	auto text2 = new TextureComponent{Player2.get(),"FygarSprite.png"};
 	auto input2 = new InputComponent{Player2.get(),1,ObjectType::Fygar};
 	auto type2 = new TypeComponent{Player2.get(),GameObjectType::Fygar};
+	auto state2 = new StateComponent{Player2.get(), new IdleState{}, new LookRightState{}};
 	CollisionComponent* FygarCollision1 = new CollisionComponent{Player2.get()};
 	FygarCollision1->SetObjectsToCheck(Player1.get());
 	text2->Update(0,0,0,25,25);
@@ -137,6 +136,7 @@ void DigDugScene::CreateVersus()
 	Player2->AddComponentToVector(FygarCollision1);
 	Player2->AddComponentToVector(input2);
 	Player2->AddComponentToVector(type2);
+	Player2->AddComponentToVector(state2);
 	Player2->SetPosition(600, 0);
 	this->Add(Player2);
 }
@@ -145,29 +145,61 @@ void DigDugScene::DoLevelDesign()
 {
 	//Set Air Blocks
 	m_pGrid->GetGrid()[69].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[69].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 	m_pGrid->GetGrid()[70].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[70].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 	m_pGrid->GetGrid()[71].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[71].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
 
 	m_pGrid->GetGrid()[96].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[96].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 	m_pGrid->GetGrid()[97].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[97].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 	m_pGrid->GetGrid()[98].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[98].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 
 	m_pGrid->GetGrid()[92].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[92].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 	m_pGrid->GetGrid()[108].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[108].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 	m_pGrid->GetGrid()[124].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[124].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
 
 	m_pGrid->GetGrid()[180].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[180].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 	m_pGrid->GetGrid()[181].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[181].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 	m_pGrid->GetGrid()[182].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[182].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 	m_pGrid->GetGrid()[179].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[179].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 	m_pGrid->GetGrid()[178].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[178].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 	m_pGrid->GetGrid()[164].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[164].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 	m_pGrid->GetGrid()[196].ChangeBlockType(BlockType::Air);
+	m_pGrid->GetGrid()[196].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+
 
 
 	//Set Enemies
 	auto FygarEnemy1 = std::make_shared<dae::GameObject>();
 	auto text = new TextureComponent{FygarEnemy1.get(),"FygarSprite.png"};
+	auto fygarState1 = new StateComponent{FygarEnemy1.get(), new IdleState, new LookRightState};
+	auto fygarAI = new FygarComponent{FygarEnemy1.get()};
 	text->Update(0,0,0,25,25);
 	FygarEnemy1->AddComponentToVector(text);
 	FygarEnemy1->SetPosition(m_pGrid->GetGrid()[180].GetGameObject()->GetPosition().x,m_pGrid->GetGrid()[180].GetGameObject()->GetPosition().y);
@@ -184,6 +216,8 @@ void DigDugScene::DoLevelDesign()
 	}
 	FygarEnemy1->AddComponentToVector(FygarCollision1);
 	FygarEnemy1->AddComponentToVector(FygarType1);
+	FygarEnemy1->AddComponentToVector(fygarState1);
+	FygarEnemy1->AddComponentToVector(fygarAI);
 	this->Add(FygarEnemy1);
 
 	auto PookaEnemy1 = std::make_shared<dae::GameObject>();
@@ -193,6 +227,7 @@ void DigDugScene::DoLevelDesign()
 	PookaEnemy1->SetPosition(m_pGrid->GetGrid()[108].GetGameObject()->GetPosition().x,m_pGrid->GetGrid()[108].GetGameObject()->GetPosition().y);
 
 	CollisionComponent* PookaCollision1 = new CollisionComponent{PookaEnemy1.get()};
+	PookaComponent* PookaAI = new PookaComponent{PookaEnemy1.get()};
 	TypeComponent* pookaType1 = new TypeComponent{PookaEnemy1.get(),GameObjectType::Pooka};
 	if (Player1)
 	{
@@ -203,14 +238,74 @@ void DigDugScene::DoLevelDesign()
 		PookaCollision1->SetObjectsToCheck(Player2.get());
 	}
 	PookaEnemy1->AddComponentToVector(PookaCollision1);
+	PookaEnemy1->AddComponentToVector(PookaAI);
 	PookaEnemy1->AddComponentToVector(pookaType1);
 	this->Add(PookaEnemy1);
 
 	auto FygarEnemy2 = std::make_shared<dae::GameObject>();
 	auto text3 = new TextureComponent{FygarEnemy1.get(),"FygarSprite.png"};
+	auto FygarType2 = new TypeComponent{FygarEnemy2.get(),GameObjectType::Fygar};
+	auto FygarState2 = new StateComponent{FygarEnemy2.get(),new IdleState, new LookRightState};
+	auto FygarAI2 = new FygarComponent{FygarEnemy2.get()};
+	auto FygarCollision2 = new CollisionComponent{FygarEnemy2.get()};
+	if (Player1)
+	{
+		FygarCollision2->SetObjectsToCheck(Player1.get());
+	}
+	if(Player2)
+	{
+		FygarCollision2->SetObjectsToCheck(Player2.get());
+	}
 	text3->Update(0,0,0,25,25);
 	FygarEnemy2->AddComponentToVector(text3);
+	FygarEnemy2->AddComponentToVector(FygarCollision2);
+	FygarEnemy2->AddComponentToVector(FygarState2);
+	FygarEnemy2->AddComponentToVector(FygarAI2);
+	FygarEnemy2->AddComponentToVector(FygarType2);
 	FygarEnemy2->SetPosition(m_pGrid->GetGrid()[70].GetGameObject()->GetPosition().x,m_pGrid->GetGrid()[70].GetGameObject()->GetPosition().y);
 	this->Add(FygarEnemy2);
+
+	auto ObjectsToAdd = m_pGrid->GetGameObjects();
+	for (auto Object : ObjectsToAdd)
+	{
+		CollisionComponent* blockCollision = new CollisionComponent{Object.get()};
+		if (Player1)
+		{
+			blockCollision->SetObjectsToCheck(Player1.get());
+		}
+		if(Player2)
+		{
+			blockCollision->SetObjectsToCheck(Player2.get());
+		}
+		blockCollision->SetObjectsToCheck(PookaEnemy1.get());
+		blockCollision->SetObjectsToCheck(FygarEnemy1.get());
+		blockCollision->SetObjectsToCheck(FygarEnemy2.get());
+		Object->AddComponentToVector(blockCollision);
+	}
+
+	auto collision = new CollisionComponent{Player1.get()};
+	collision->SetObjectsToCheck(FygarEnemy1.get());
+	collision->SetObjectsToCheck(FygarEnemy2.get());
+	collision->SetObjectsToCheck(PookaEnemy1.get());
+
+	
+
+	if(Player2)
+	{
+		if(Player2.get()->GetTypeComp()->GetType() == GameObjectType::Fygar)
+		{
+			collision->SetObjectsToCheck(Player2.get());
+		}
+		else
+		{
+			auto collision2 = new CollisionComponent{Player2.get()};
+			collision2->SetObjectsToCheck(FygarEnemy1.get());
+			collision2->SetObjectsToCheck(FygarEnemy2.get());
+			collision2->SetObjectsToCheck(PookaEnemy1.get());
+			Player2->AddComponentToVector(collision2);
+		}
+	}
+	Player1->AddComponentToVector(collision);
+
 }
 

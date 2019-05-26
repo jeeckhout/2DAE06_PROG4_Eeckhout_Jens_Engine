@@ -4,8 +4,12 @@
 #include "Renderer.h"
 #include "FPSComponent.h"
 #include "TextureComponent.h"
+#include "PookaComponent.h"
+#include "FygarComponent.h"
 #include "InputComponent.h"
 #include "TypeComponent.h"
+#include "StateComponent.h"
+#include "CollisionComponent.h"
 #include "Font.h"
 
 dae::GameObject::~GameObject()
@@ -13,7 +17,15 @@ dae::GameObject::~GameObject()
 	for (BaseComponent* pComp : m_pComponents)
 	{
 		delete pComp;
+		pComp = nullptr;
 	}
+	m_pComponents.clear();
+	for(GameObject* pChild : m_pChildren)
+	{
+		delete pChild;
+		pChild = nullptr;
+	}
+	m_pChildren.clear();
 };
 
 void dae::GameObject::Update(float deltaTime)
@@ -21,7 +33,17 @@ void dae::GameObject::Update(float deltaTime)
 	const auto pos = mTransform.GetPosition();
 	for (BaseComponent* pComp : m_pComponents)
 	{
-		pComp->Update(deltaTime,pos.x,pos.y);
+		if (pComp)
+		{
+			pComp->Update(deltaTime,pos.x,pos.y);
+		}
+	}
+	for( GameObject* pChild : m_pChildren)
+	{
+		if(pChild)
+		{
+			pChild->Update(deltaTime);
+		}
 	}
 }
 
@@ -29,7 +51,13 @@ void dae::GameObject::Render() const
 {
 	for (BaseComponent* pComp : m_pComponents)
 	{
+		if(pComp)
 		pComp->Render();
+	}
+	for( GameObject* pChild : m_pChildren)
+	{
+		if(pChild)
+		pChild->Render();
 	}
 }
 
@@ -55,6 +83,18 @@ SDL_Rect* dae::GameObject::GetTextureRect()
 	}
 
 	return nullptr;
+}
+
+void dae::GameObject::DeactivateTextureRendering()
+{
+	for(auto comp : m_pComponents)
+	{
+		TextureComponent* derived = dynamic_cast<TextureComponent*>(comp);
+		if (derived)
+		{
+			derived->DeactivateRendering();
+		}
+	}
 }
 
 void dae::GameObject::AddComponentToVector(BaseComponent* componentToAdd)
@@ -85,4 +125,72 @@ TypeComponent* dae::GameObject::GetTypeComp()
 		}
 	}
 	return nullptr;
+}
+
+PookaComponent* dae::GameObject::GetPookaComp()
+{
+	for(auto comp : m_pComponents)
+	{
+		PookaComponent* derived = dynamic_cast<PookaComponent*>(comp);
+		if (derived)
+		{
+			return derived;
+		}
+	}
+	return nullptr;
+
+}
+
+FygarComponent* dae::GameObject::GetFygarComp()
+{
+	for(auto comp : m_pComponents)
+	{
+		FygarComponent* derived = dynamic_cast<FygarComponent*>(comp);
+		if (derived)
+		{
+			return derived;
+		}
+	}
+	return nullptr;
+}
+
+StateComponent* dae::GameObject::GetStateComp()
+{
+	for(auto comp : m_pComponents)
+	{
+		StateComponent* derived = dynamic_cast<StateComponent*>(comp);
+		if (derived)
+		{
+			return derived;
+		}
+	}
+	return nullptr;
+}
+
+CollisionComponent* dae::GameObject::GetCollisionComp()
+{
+	for(auto comp : m_pComponents)
+	{
+		CollisionComponent* derived = dynamic_cast<CollisionComponent*>(comp);
+		if (derived)
+		{
+			return derived;
+		}
+	}
+	return nullptr;
+}
+
+void dae::GameObject::AddChild(GameObject* child)
+{
+	m_pChildren.push_back(child);
+}
+
+void dae::GameObject::DeleteChildren()
+{
+	for( GameObject* pChild : m_pChildren)
+	{
+		delete pChild;
+		pChild = nullptr;
+	}
+	m_pChildren.clear();
 }

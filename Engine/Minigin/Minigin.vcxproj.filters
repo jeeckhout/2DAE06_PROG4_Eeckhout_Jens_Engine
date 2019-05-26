@@ -99,6 +99,12 @@
     <ClInclude Include="TypeComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PookaComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FygarComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -165,6 +171,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TypeComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PookaComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FygarComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,5 +1,8 @@
 #include "pch.h"
 #include "DownCommand.h"
+#include "StateComponent.h"
+#include "MovingState.h"
+#include "LookDownState.h"
 
 
 DownCommand::DownCommand()
@@ -13,6 +16,15 @@ DownCommand::~DownCommand()
 
 void DownCommand::Execute(dae::GameObject* player, ObjectType, const float& deltaTime)
 {
+	player->GetStateComp()->SetState(new LookDownState{});
 	auto currPos = player->GetPosition();
-	player->SetPosition(currPos.x , currPos.y += 100.f * deltaTime);
+	if(currPos.y < 460)
+	{
+		player->SetPosition(currPos.x , currPos.y += 100.f * deltaTime);
+	}
+	else
+	{
+		currPos.y = 460;
+		player->SetPosition(currPos.x,currPos.y);
+	}
 }

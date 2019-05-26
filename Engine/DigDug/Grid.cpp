@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Grid.h"
 #include "GameObject.h"
+#include "TypeComponent.h"
 
 
 Grid::Grid(float Width, float Height, int rows, int cols) : m_TotWidth(Width)
@@ -55,8 +56,40 @@ void Grid::CreateGrid()
 			{
 				m_CurrType = BlockType::Layer4;
 			}
+			else if(currRow == 0) 
+			{
+				m_CurrType = BlockType::Air;
+			}
+
 			m_pGrid[currPos].CreateObject(m_CurrType);
+
+			TypeComponent* pType = nullptr;
+
+			switch (m_CurrType)
+			{
+				case BlockType::Air:
+				pType = new TypeComponent{m_pGrid[currPos].GetGameObject().get(),GameObjectType::AirBlock};
+				break;
+
+				case BlockType::Layer1:
+				pType = new TypeComponent{m_pGrid[currPos].GetGameObject().get(),GameObjectType::Layer1Block};
+				break;
+
+				case BlockType::Layer2:
+				pType = new TypeComponent{m_pGrid[currPos].GetGameObject().get(),GameObjectType::Layer2Block};
+				break;
+
+				case BlockType::Layer3:
+				pType = new TypeComponent{m_pGrid[currPos].GetGameObject().get(),GameObjectType::Layer3Block};
+				break;
+
+				case BlockType::Layer4:
+				pType = new TypeComponent{m_pGrid[currPos].GetGameObject().get(),GameObjectType::Layer4Block};
+				break;
+			}
+
 			m_pGrid[currPos].GetGameObject()->SetPosition(currWidth, 0 + currHeight);
+			m_pGrid[currPos].GetGameObject()->AddComponentToVector(pType);
 			m_pGrid[currPos].UpdateTextureToFitGridSize(m_BlockWidth,m_BlockHeight);
 			m_pGameObjects.push_back(m_pGrid[currPos].GetGameObject());
 			currWidth += m_BlockWidth;

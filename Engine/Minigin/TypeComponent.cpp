@@ -11,3 +11,8 @@ GameObjectType TypeComponent::GetType()
 {
 	return m_Type;
 }
+
+void TypeComponent::SetType(GameObjectType newType)
+{
+	m_Type = newType;
+}

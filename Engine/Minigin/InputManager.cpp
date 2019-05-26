@@ -46,36 +46,74 @@ Command* dae::InputManager::HandleInput(int controllerID)
 			--m_ActiveControllers;
 		}
 
-		if (IsPressed(ControllerButton::ButtonA))
+
+
+		if (IsPressed(ControllerButton::ButtonA) || IsPressed(ControllerButton::E))
 		{
+			m_IsAPressed = true;
 			return ButtonA_Cmd;
 		}
 		if (IsPressed(ControllerButton::ButtonB))
 		{
+			if (m_IsAPressed == true)
+			{
+				m_IsAPressed = false;
+				return ButtonAReleased_Cmd;
+			}
 			return ButtonB_Cmd;
 		}
 		if (IsPressed(ControllerButton::ButtonX))
 		{
+			if (m_IsAPressed == true)
+			{
+				m_IsAPressed = false;
+				return ButtonAReleased_Cmd;
+			}
 			return ButtonX_Cmd;
 		}
 		if (IsPressed(ControllerButton::ButtonY))
 		{
+			if (m_IsAPressed == true)
+			{
+				m_IsAPressed = false;
+				return ButtonAReleased_Cmd;
+			}
 			return ButtonY_Cmd;
 		}
 		if (IsPressed(ControllerButton::DpadRight) || (IsPressed(ControllerButton::D) && controllerID == 0))
 		{
+			if (m_IsAPressed == true)
+			{
+				m_IsAPressed = false;
+				return ButtonAReleased_Cmd;
+			}
 			return DPadRight_Cmd;
 		}
 		if (IsPressed(ControllerButton::DpadLeft) || (IsPressed(ControllerButton::A) && controllerID == 0))
 		{
+			if (m_IsAPressed == true)
+			{
+				m_IsAPressed = false;
+				return ButtonAReleased_Cmd;
+			}
 			return DPadLeft_Cmd;
 		}
 		if (IsPressed(ControllerButton::DpadUp) || (IsPressed(ControllerButton::W) && controllerID == 0))
 		{
+			if (m_IsAPressed == true)
+			{
+				m_IsAPressed = false;
+				return ButtonAReleased_Cmd;
+			}
 			return DPadUp_Cmd;
 		}
 		if (IsPressed(ControllerButton::DpadDown) || (IsPressed(ControllerButton::S) && controllerID == 0))
 		{
+			if (m_IsAPressed == true)
+			{
+				m_IsAPressed = false;
+				return ButtonAReleased_Cmd;
+			}
 			return DPadDown_Cmd;
 		}
 
@@ -175,5 +213,10 @@ void dae::InputManager::CheckControllers()
 			++m_ActiveControllers;
 		}
 	}
+}
+
+void dae::InputManager::SetAReleasedCommand(Command* cmd)
+{
+	ButtonAReleased_Cmd = cmd;
 }
 

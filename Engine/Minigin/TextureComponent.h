@@ -15,6 +15,7 @@ public:
 	void Render() override;
 	void Update(const float&, float x, float y , float width = 0, float height = 0 ) override;
 	void ChangeTexture(std::string fileName);
+	void DeactivateRendering();
 	SDL_Rect* GetTextureData();
 	TextureComponent(const TextureComponent& other) = delete;
 	TextureComponent(TextureComponent&& other) = delete;
@@ -24,5 +25,6 @@ public:
 private:
 	std::shared_ptr<dae::Texture2D> mTexture = nullptr;
 	SDL_Rect* textureData{};
+	bool m_ShouldRender{true};
 };
 

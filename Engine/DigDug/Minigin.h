@@ -6,6 +6,8 @@ class LeftCommand;
 class UpCommand;
 class DownCommand;
 class AttackCommand;
+class StopAttackCommand;
+
 namespace dae
 {
 	class Minigin
@@ -24,5 +26,6 @@ namespace dae
 		UpCommand* cmdUp{};
 		DownCommand* cmdDown{};
 		AttackCommand* cmdAttack{};
+		StopAttackCommand* cmdStopAttack{};
 	};
 }
