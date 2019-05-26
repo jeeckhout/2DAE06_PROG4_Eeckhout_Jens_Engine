@@ -62,19 +62,19 @@ Command* dae::InputManager::HandleInput(int controllerID)
 		{
 			return ButtonY_Cmd;
 		}
-		if (IsPressed(ControllerButton::DpadRight))
+		if (IsPressed(ControllerButton::DpadRight) || (IsPressed(ControllerButton::D) && controllerID == 0))
 		{
 			return DPadRight_Cmd;
 		}
-		if (IsPressed(ControllerButton::DpadLeft))
+		if (IsPressed(ControllerButton::DpadLeft) || (IsPressed(ControllerButton::A) && controllerID == 0))
 		{
 			return DPadLeft_Cmd;
 		}
-		if (IsPressed(ControllerButton::DpadUp))
+		if (IsPressed(ControllerButton::DpadUp) || (IsPressed(ControllerButton::W) && controllerID == 0))
 		{
 			return DPadUp_Cmd;
 		}
-		if (IsPressed(ControllerButton::DpadDown))
+		if (IsPressed(ControllerButton::DpadDown) || (IsPressed(ControllerButton::S) && controllerID == 0))
 		{
 			return DPadDown_Cmd;
 		}
@@ -104,6 +104,22 @@ bool dae::InputManager::IsPressed(ControllerButton button) const
 			return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT;
 		case ControllerButton::Start:
 			return m_State.Gamepad.wButtons & XINPUT_GAMEPAD_START;
+		case ControllerButton::W:
+			return GetKeyState('W') & 0x8000;
+		case ControllerButton::A:
+			return GetKeyState('A') & 0x8000;
+		case ControllerButton::S:
+			return GetKeyState('S') & 0x8000;
+		case ControllerButton::D:
+			return GetKeyState('D') & 0x8000;
+		case ControllerButton::E:
+			return GetKeyState('E') & 0x8000;
+		case ControllerButton::Num1:
+			return GetKeyState(VK_NUMPAD1) & 0x8000;
+		case ControllerButton::Num2:
+			return GetKeyState(VK_NUMPAD2) & 0x8000;
+		case ControllerButton::Num3:
+			return GetKeyState(VK_NUMPAD3) & 0x8000;
 		}
 	return false;
 }

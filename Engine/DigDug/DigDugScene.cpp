@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "iostream"
 #include "DigDugScene.h"
 #include "GameObject.h"
 #include "TextureComponent.h"
@@ -29,21 +30,23 @@ void DigDugScene::Initialize()
 		this->Add(Object);
 	}
 
+	std::cout << "\nPRESS A/1 FOR SOLO, B/2 FOR COOP OR X/3 FOR VERSUS";
+
 	while (!m_HasChosenMode)
 	{
 		dae::InputManager::GetInstance().CheckControllers();
 		dae::InputManager::GetInstance().ProcessInput();
-		if (dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::ButtonA))
+		if (dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::ButtonA) || dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::Num1))
 		{
 			CreateSingle();
 			m_HasChosenMode = true;
 		}
-		else if(dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::ButtonB))
+		else if(dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::ButtonB)|| dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::Num2))
 		{
 			CreateCoop();
 			m_HasChosenMode = true;
 		}
-		else if (dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::ButtonX))
+		else if (dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::ButtonX)|| dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::Num3))
 		{
 			CreateVersus();
 			m_HasChosenMode = true;
@@ -76,8 +79,10 @@ void DigDugScene::CreateCoop()
 	Player1 = std::make_shared<dae::GameObject>();
 	auto text = new TextureComponent{Player1.get(),"PlayerSprite.png"};
 	auto input = new InputComponent{Player1.get(),0,ObjectType::Player};
+	auto type = new TypeComponent{Player1.get(),GameObjectType::Player};
 	text->Update(0,0,0,25,25);
 	Player1->AddComponentToVector(text);
+	Player1->AddComponentToVector(type);
 	Player1->AddComponentToVector(input);
 	Player1->SetPosition(0,0);
 	this->Add(Player1);
@@ -85,9 +90,11 @@ void DigDugScene::CreateCoop()
 	Player2 = std::make_shared<dae::GameObject>();
 	auto text2 = new TextureComponent{Player2.get(),"PlayerSprite.png"};
 	auto input2 = new InputComponent{Player2.get(),1,ObjectType::Player};
+	auto type2 = new TypeComponent{Player2.get(),GameObjectType::Player};
 	text2->Update(0,0,0,25,25);
 	Player2->AddComponentToVector(text2);
 	Player2->AddComponentToVector(input2);
+	Player2->AddComponentToVector(type2);
 	Player2->SetPosition(600, 0);
 	this->Add(Player2);
 }
@@ -111,8 +118,10 @@ void DigDugScene::CreateVersus()
 	Player1 = std::make_shared<dae::GameObject>();
 	auto text = new TextureComponent{Player1.get(),"PlayerSprite.png"};
 	auto input = new InputComponent{Player1.get(),0,ObjectType::Player};
+	auto type = new TypeComponent{Player1.get(),GameObjectType::Player};
 	text->Update(0,0,0,25,25);
 	Player1->AddComponentToVector(text);
+	Player1->AddComponentToVector(type);
 	Player1->AddComponentToVector(input);
 	Player1->SetPosition(0,0);
 	this->Add(Player1);
@@ -120,9 +129,14 @@ void DigDugScene::CreateVersus()
 	Player2 = std::make_shared<dae::GameObject>();
 	auto text2 = new TextureComponent{Player2.get(),"FygarSprite.png"};
 	auto input2 = new InputComponent{Player2.get(),1,ObjectType::Fygar};
+	auto type2 = new TypeComponent{Player2.get(),GameObjectType::Fygar};
+	CollisionComponent* FygarCollision1 = new CollisionComponent{Player2.get()};
+	FygarCollision1->SetObjectsToCheck(Player1.get());
 	text2->Update(0,0,0,25,25);
 	Player2->AddComponentToVector(text2);
+	Player2->AddComponentToVector(FygarCollision1);
 	Player2->AddComponentToVector(input2);
+	Player2->AddComponentToVector(type2);
 	Player2->SetPosition(600, 0);
 	this->Add(Player2);
 }
