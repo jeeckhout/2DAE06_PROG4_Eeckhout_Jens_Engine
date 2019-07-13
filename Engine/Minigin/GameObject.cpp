@@ -4,12 +4,8 @@
 #include "Renderer.h"
 #include "FPSComponent.h"
 #include "TextureComponent.h"
-#include "PookaComponent.h"
-#include "FygarComponent.h"
 #include "InputComponent.h"
-#include "TypeComponent.h"
 #include "StateComponent.h"
-#include "CollisionComponent.h"
 #include "Font.h"
 
 dae::GameObject::~GameObject()
@@ -114,45 +110,6 @@ void dae::GameObject::UpdateTexture(std::string fileName)
 	}
 }
 
-TypeComponent* dae::GameObject::GetTypeComp()
-{
-	for(auto comp : m_pComponents)
-	{
-		TypeComponent* derived = dynamic_cast<TypeComponent*>(comp);
-		if (derived)
-		{
-			return derived;
-		}
-	}
-	return nullptr;
-}
-
-PookaComponent* dae::GameObject::GetPookaComp()
-{
-	for(auto comp : m_pComponents)
-	{
-		PookaComponent* derived = dynamic_cast<PookaComponent*>(comp);
-		if (derived)
-		{
-			return derived;
-		}
-	}
-	return nullptr;
-
-}
-
-FygarComponent* dae::GameObject::GetFygarComp()
-{
-	for(auto comp : m_pComponents)
-	{
-		FygarComponent* derived = dynamic_cast<FygarComponent*>(comp);
-		if (derived)
-		{
-			return derived;
-		}
-	}
-	return nullptr;
-}
 
 StateComponent* dae::GameObject::GetStateComp()
 {
@@ -167,18 +124,6 @@ StateComponent* dae::GameObject::GetStateComp()
 	return nullptr;
 }
 
-CollisionComponent* dae::GameObject::GetCollisionComp()
-{
-	for(auto comp : m_pComponents)
-	{
-		CollisionComponent* derived = dynamic_cast<CollisionComponent*>(comp);
-		if (derived)
-		{
-			return derived;
-		}
-	}
-	return nullptr;
-}
 
 void dae::GameObject::AddChild(GameObject* child)
 {
@@ -193,4 +138,10 @@ void dae::GameObject::DeleteChildren()
 		pChild = nullptr;
 	}
 	m_pChildren.clear();
+}
+
+std::vector<BaseComponent*>& dae::GameObject::GetComponents()
+{
+	// TODO: insert return statement here
+	return m_pComponents;
 }

@@ -1,26 +1,62 @@
-﻿  pch.cpp
-  AttackCommand.cpp
-  AttackState.cpp
+﻿  AttackCommand.cpp
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\attackcommand.cpp(41): error C2039: 'GetCollisionComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\attackcommand.cpp(56): error C2039: 'GetCollisionComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\attackcommand.cpp(71): error C2039: 'GetCollisionComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\attackcommand.cpp(86): error C2039: 'GetCollisionComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\attackcommand.cpp(115): error C2039: 'GetCollisionComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\attackcommand.cpp(130): error C2039: 'GetCollisionComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\attackcommand.cpp(145): error C2039: 'GetCollisionComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\attackcommand.cpp(160): error C2039: 'GetCollisionComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
   Block.cpp
   DigDugScene.cpp
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(147): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(150): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(153): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(156): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(159): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(162): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(166): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(169): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(172): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(175): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(178): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(181): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(184): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(187): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(190): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(193): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
+f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\digdug\digdugscene.cpp(294): error C2039: 'GetTypeComp': is not a member of 'dae::GameObject'
+  f:\2dae\sem2\programming4\2dae06_prog4_05_eeckhout_jens\engine\minigin\basestate.h(4): note: see declaration of 'dae::GameObject'
   DownCommand.cpp
   Grid.cpp
-  HitState.cpp
   IdleCommand.cpp
-  IdleState.cpp
   LeftCommand.cpp
-  LookDownState.cpp
-  LookLeftState.cpp
-  LookRightState.cpp
-  LookUpState.cpp
-  Main.cpp
   Minigin.cpp
-  MovingState.cpp
-  PumpingState.cpp
   RightCommand.cpp
   StopAttackCommand.cpp
-  Generating Code...
-  Compiling...
   UpCommand.cpp
   Generating Code...
-  DigDug.vcxproj -> E:\Documents\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\x64\Debug\DigDug.exe

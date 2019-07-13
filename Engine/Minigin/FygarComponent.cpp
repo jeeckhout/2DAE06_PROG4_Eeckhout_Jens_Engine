@@ -10,8 +10,6 @@
 #include "../DigDug/LookUpState.h"
 #include "../DigDug/LookDownState.h"
 #include "BaseState.h"
-#include "../DigDug/MovingState.h"
-#include "../DigDug/AttackState.h"
 
 
 FygarComponent::FygarComponent(dae::GameObject *parent)

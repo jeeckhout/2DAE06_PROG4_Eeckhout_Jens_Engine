@@ -36,14 +36,13 @@ void DigDugScene::Initialize()
 	}
 
 	std::cout << "\nPRESS A/1 FOR SOLO, B/2 FOR COOP OR X/3 FOR VERSUS";
-
+	
 	while (!m_HasChosenMode)
 	{
 		dae::InputManager::GetInstance().CheckControllers();
 		dae::InputManager::GetInstance().ProcessInput();
 		if (dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::ButtonA) || dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::Num1))
-		{
-			CreateSingle();
+		{			CreateSingle();
 			m_HasChosenMode = true;
 		}
 		else if(dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::ButtonB)|| dae::InputManager::GetInstance().IsPressed(dae::ControllerButton::Num2))

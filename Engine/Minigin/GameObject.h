@@ -7,11 +7,7 @@
 class BaseComponent;
 class FPSComponent;
 class TextureComponent;
-class TypeComponent;
-class PookaComponent;
-class FygarComponent;
 class StateComponent;
-class CollisionComponent;
 
 namespace dae
 {
@@ -33,14 +29,10 @@ namespace dae
 		void DeactivateTextureRendering();
 		void AddComponentToVector(BaseComponent* componentToAdd);
 		void UpdateTexture(std::string fileName);
-		TypeComponent* GetTypeComp();
-		PookaComponent* GetPookaComp();
-		FygarComponent* GetFygarComp();
 		StateComponent* GetStateComp();
-		CollisionComponent* GetCollisionComp();
 		void AddChild(GameObject* child);
 		void DeleteChildren();
-
+		std::vector<BaseComponent*>& GetComponents();
 
 	private:
 		Transform mTransform;

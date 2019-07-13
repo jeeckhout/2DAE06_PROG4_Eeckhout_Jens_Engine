@@ -6,7 +6,9 @@
 
 bool dae::InputManager::ProcessInput()
 {
-	for (int i = 0; i < m_ActiveControllers; ++i)
+	if (m_ActiveControllers >= 1)
+	{
+			for (int i = 0; i < m_ActiveControllers; ++i)
 	{
 		ZeroMemory(&m_State, sizeof(XINPUT_STATE));
 		XInputGetState(i, &m_State);
@@ -33,6 +35,25 @@ bool dae::InputManager::ProcessInput()
 		}
 	}
 	return  true;
+	}
+
+		SDL_Event e;
+		while (SDL_PollEvent(&e)) 
+		{
+			if (e.type == SDL_QUIT) 
+			{
+				return false;
+			}
+			if (e.type == SDL_KEYDOWN) 
+			{
+				
+			}
+			if (e.type == SDL_MOUSEBUTTONDOWN) 
+			{
+				
+			}
+		}
+	return true;
 }
 	
 Command* dae::InputManager::HandleInput(int controllerID)

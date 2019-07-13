@@ -72,7 +72,12 @@ void CollisionComponent::Update(const float&, float, float, float, float)
 							object->DeactivateTextureRendering();
 							if (object->GetTypeComp()->GetType() == GameObjectType::Fygar)
 							{
-								object->GetFygarComp()->StopFire();
+								 auto testFire = object->GetFygarComp();
+								if(testFire)
+								{
+									testFire->StopFire();
+									testFire->StopMovement();
+								}
 							}
 							object->GetTypeComp()->SetType(GameObjectType::AirBlock);
 						}
