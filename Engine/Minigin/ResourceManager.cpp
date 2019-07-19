@@ -3,7 +3,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
-
 #include "Renderer.h"
 #include "Texture2D.h"
 #include "Font.h"
@@ -21,7 +20,10 @@ void dae::ResourceManager::Init(std::string&& dataPath)
 
 	if ((IMG_Init(IMG_INIT_JPG) & IMG_INIT_JPG) != IMG_INIT_JPG) 
 	{
-		throw std::runtime_error(std::string("Failed to load support for jpg's: ") + SDL_GetError());
+		//EXPLANATION:
+		/*For some reason the x86 version of the SDL2_image library keeps failing to load in jpg's so i decided to just disable this entirely*/
+		//throw std::runtime_error(std::string("Failed to load support for jpg's: ") + SDL_GetError());
+
 	}
 
 	if (TTF_Init() != 0) 

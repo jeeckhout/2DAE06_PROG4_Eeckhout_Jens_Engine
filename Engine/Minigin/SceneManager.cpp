@@ -1,7 +1,6 @@
 #include "MiniginPCH.h"
 #include "SceneManager.h"
 #include "Scene.h"
-#include "../DigDug/DigDugScene.h"
 
 
 void dae::SceneManager::Update(float deltaTime)
@@ -27,10 +26,6 @@ void dae::SceneManager::CreateScene(const std::string& name,SceneType type)
 	{
 	case SceneType::Standard:
 		scene = std::shared_ptr<Scene>(new Scene(name));
-		break;
-
-	case SceneType::DigDugLevel1:
-		scene = std::shared_ptr<Scene>(new DigDugScene(name));
 		break;
 
 	default:

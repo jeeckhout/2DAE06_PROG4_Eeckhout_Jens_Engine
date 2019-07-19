@@ -1,13 +1,35 @@
-﻿  Minigin.vcxproj -> F:\2DAE\Sem2\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\x64\Debug\Minigin.lib
-  F:\2DAE\Sem2\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\3rdParty\SDL2\lib\x64\SDL2.dll
+﻿  MiniginPCH.cpp
+  BaseComponent.cpp
+  BinaryReader.cpp
+  BinaryWriter.cpp
+  Font.cpp
+  FPSComponent.cpp
+  GameObject.cpp
+  InputComponent.cpp
+  InputManager.cpp
+  Locator.cpp
+  Log.cpp
+  Minigin.cpp
+  Renderer.cpp
+  ResourceManager.cpp
+  Scene.cpp
+  SceneManager.cpp
+  StateComponent.cpp
+  TextObject.cpp
+  Texture2D.cpp
+  TextureComponent.cpp
+  Transform.cpp
+  Generating Code...
+  Minigin.vcxproj -> E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\x64\Debug\Minigin.lib
+  E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\3rdParty\SDL2\lib\x64\SDL2.dll
   1 File(s) copied
-  F:\2DAE\Sem2\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\3rdParty\SDL2_image\lib\x64\libjpeg-9.dll
-  F:\2DAE\Sem2\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\3rdParty\SDL2_image\lib\x64\libpng16-16.dll
-  F:\2DAE\Sem2\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\3rdParty\SDL2_image\lib\x64\libtiff-5.dll
-  F:\2DAE\Sem2\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\3rdParty\SDL2_image\lib\x64\libwebp-7.dll
-  F:\2DAE\Sem2\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\3rdParty\SDL2_image\lib\x64\SDL2_image.dll
-  F:\2DAE\Sem2\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\3rdParty\SDL2_image\lib\x64\zlib1.dll
+  E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\3rdParty\SDL2_image\lib\x64\libjpeg-9.dll
+  E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\3rdParty\SDL2_image\lib\x64\libpng16-16.dll
+  E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\3rdParty\SDL2_image\lib\x64\libtiff-5.dll
+  E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\3rdParty\SDL2_image\lib\x64\libwebp-7.dll
+  E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\3rdParty\SDL2_image\lib\x64\SDL2_image.dll
+  E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\3rdParty\SDL2_image\lib\x64\zlib1.dll
   6 File(s) copied
-  F:\2DAE\Sem2\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\3rdParty\SDL2_ttf\lib\x64\libfreetype-6.dll
-  F:\2DAE\Sem2\Programming4\2DAE06_PROG4_05_Eeckhout_Jens\Engine\3rdParty\SDL2_ttf\lib\x64\SDL2_ttf.dll
+  E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\3rdParty\SDL2_ttf\lib\x64\libfreetype-6.dll
+  E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\3rdParty\SDL2_ttf\lib\x64\SDL2_ttf.dll
   2 File(s) copied
