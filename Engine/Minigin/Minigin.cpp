@@ -9,11 +9,7 @@
 #include <SDL.h>
 #include "Locator.h"
 #include "Audio.h"
-#include "TextObject.h"
-#include "GameObject.h"
-#include "Scene.h"
-#include "FPSComponent.h"
-#include "TextureComponent.h"
+
 
 
 void dae::Minigin::Initialize()
@@ -44,7 +40,7 @@ void dae::Minigin::Initialize()
 void dae::Minigin::LoadGame() const
 {
 	Locator::Initialize();
-	SceneManager::GetInstance().CreateScene("Demo",SceneType::DigDugLevel1);
+	SceneManager::GetInstance().CreateScene("Demo",SceneType::PengoLevel);
 }
 
 void dae::Minigin::Cleanup()
@@ -68,6 +64,10 @@ void dae::Minigin::Run()
 		auto& renderer = Renderer::GetInstance();
 		auto& sceneManager = SceneManager::GetInstance();
 		auto& input = InputManager::GetInstance();
+		ConsoleAudio song;
+		song.AddMusic("../Data/Pengo_Music.mp3");
+		Locator::Provide(&song);
+		Locator::GetAudio()->PlayMusic(0);
 		bool doContinue = true;
 		while (doContinue)
 		{

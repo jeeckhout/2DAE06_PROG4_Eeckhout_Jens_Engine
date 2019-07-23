@@ -19,24 +19,16 @@ void Block::ChangeBlockType(BlockType type)
 
 	switch (m_Type)
 	{
-	case BlockType::Layer1:
-		m_TextComp->ChangeTexture("Layer1Block.png");
-		break;
-
-	case BlockType::Layer2:
+	case BlockType::Crystal:
 		m_TextComp->ChangeTexture("Layer2Block.png");
 		break;
 
-	case BlockType::Layer3:
+	case BlockType::EggBlock:
 		m_TextComp->ChangeTexture("Layer3Block.png");
 		break;
 
-	case BlockType::Layer4:
+	case BlockType::IceBlock:
 		m_TextComp->ChangeTexture("Layer4Block.png");
-		break;
-
-	case BlockType::Rock:
-		m_TextComp->ChangeTexture("RockBlock.png");
 		break;
 
 	case BlockType::Air:
@@ -53,28 +45,18 @@ void Block::CreateObject(BlockType type)
 
 	switch (m_Type)
 	{
-	case BlockType::Layer1:
-		m_TextComp = new TextureComponent{m_GameObj.get(),"Layer1Block.png"};
-		m_TextComp->Update(0,0,0,35,35);
-		break;
-
-	case BlockType::Layer2:
+	case BlockType::Crystal:
 		m_TextComp = new TextureComponent{m_GameObj.get(),"Layer2Block.png"};
 		m_TextComp->Update(0,0,0,35,35);
 		break;
 
-	case BlockType::Layer3:
+	case BlockType::EggBlock:
 		m_TextComp = new TextureComponent{m_GameObj.get(),"Layer3Block.png"};
 		m_TextComp->Update(0,0,0,35,35);
 		break;
 
-	case BlockType::Layer4:
+	case BlockType::IceBlock:
 		m_TextComp = new TextureComponent{m_GameObj.get(),"Layer4Block.png"};
-		m_TextComp->Update(0,0,0,35,35);
-		break;
-
-	case BlockType::Rock:
-		m_TextComp = new TextureComponent{m_GameObj.get(),"RockBlock.png"};
 		m_TextComp->Update(0,0,0,35,35);
 		break;
 

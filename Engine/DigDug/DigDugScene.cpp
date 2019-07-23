@@ -143,54 +143,7 @@ void DigDugScene::CreateVersus()
 void DigDugScene::DoLevelDesign()
 {
 	//Set Air Blocks
-	m_pGrid->GetGrid()[69].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[69].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[70].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[70].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[71].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[71].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[96].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[96].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[97].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[97].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[98].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[98].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-
-	m_pGrid->GetGrid()[92].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[92].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[108].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[108].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[124].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[124].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[180].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[180].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[181].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[181].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[182].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[182].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[179].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[179].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[178].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[178].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[164].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[164].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
-
-	m_pGrid->GetGrid()[196].ChangeBlockType(BlockType::Air);
-	m_pGrid->GetGrid()[196].GetGameObject()->GetTypeComp()->SetType(GameObjectType::AirBlock);
+	
 
 
 
@@ -291,11 +244,7 @@ void DigDugScene::DoLevelDesign()
 
 	if(Player2)
 	{
-		if(Player2.get()->GetTypeComp()->GetType() == GameObjectType::Fygar)
-		{
-			collision->SetObjectsToCheck(Player2.get());
-		}
-		else
+
 		{
 			auto collision2 = new CollisionComponent{Player2.get()};
 			collision2->SetObjectsToCheck(FygarEnemy1.get());

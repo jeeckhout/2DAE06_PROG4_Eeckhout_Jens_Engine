@@ -22,7 +22,7 @@ namespace dae
 	protected:
 		std::string mName{};
 		explicit Scene(const std::string& name);
-		std::vector < std::shared_ptr<SceneObject>> mObjects{};
+		std::vector <std::shared_ptr<SceneObject>> mObjects{};
 		static unsigned int idCounter;
 	};
 

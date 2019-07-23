@@ -110,21 +110,6 @@ void dae::GameObject::UpdateTexture(std::string fileName)
 	}
 }
 
-
-StateComponent* dae::GameObject::GetStateComp()
-{
-	for(auto comp : m_pComponents)
-	{
-		StateComponent* derived = dynamic_cast<StateComponent*>(comp);
-		if (derived)
-		{
-			return derived;
-		}
-	}
-	return nullptr;
-}
-
-
 void dae::GameObject::AddChild(GameObject* child)
 {
 	m_pChildren.push_back(child);

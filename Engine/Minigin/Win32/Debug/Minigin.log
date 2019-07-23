@@ -1,4 +1,7 @@
-﻿  ResourceManager.cpp
+﻿  GameObject.cpp
+  InputComponent.cpp
+  InputManager.cpp
+  Generating Code...
   Minigin.vcxproj -> E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\Win32\Debug\Minigin.lib
   E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\3rdParty\SDL2\lib\x86\SDL2.dll
   1 File(s) copied

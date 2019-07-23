@@ -8,11 +8,10 @@ class TextureComponent;
 enum class BlockType
 {
 	Air,
-	Layer1,
-	Layer2,
-	Layer3,
-	Layer4,
-	Rock
+	Crystal,
+	IceBlock,
+	EggBlock,
+	Wire
 };
 class Block
 {

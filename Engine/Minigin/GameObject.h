@@ -29,7 +29,6 @@ namespace dae
 		void DeactivateTextureRendering();
 		void AddComponentToVector(BaseComponent* componentToAdd);
 		void UpdateTexture(std::string fileName);
-		StateComponent* GetStateComp();
 		void AddChild(GameObject* child);
 		void DeleteChildren();
 		std::vector<BaseComponent*>& GetComponents();

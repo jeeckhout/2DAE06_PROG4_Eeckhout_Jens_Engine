@@ -6,14 +6,11 @@
 InputComponent::InputComponent(dae::GameObject *parent, int ID, ObjectType type) 
 : BaseComponent(parent),
 m_ControllerID(ID),
-m_Type{type}
+m_Type{type},
+triggeredCommand(nullptr)
 {
 }
 
-
-InputComponent::~InputComponent()
-{
-}
 
 void InputComponent::Update(const float& deltaTime, float, float, float,float)
 {

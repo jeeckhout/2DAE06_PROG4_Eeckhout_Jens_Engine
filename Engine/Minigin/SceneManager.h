@@ -1,13 +1,13 @@
 #pragma once
 #include "Singleton.h"
-
+#include "vector"
+#include <memory>
 namespace dae
 {
 	enum class SceneType
 	{
 		Standard,
-		DigDugLevel1,
-		DigDugLevel2,
+		PengoLevel,
 		MainMenu,
 		GameOverMenu,
 	};

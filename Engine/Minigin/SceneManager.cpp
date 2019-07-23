@@ -28,6 +28,10 @@ void dae::SceneManager::CreateScene(const std::string& name,SceneType type)
 		scene = std::shared_ptr<Scene>(new Scene(name));
 		break;
 
+	case SceneType::PengoLevel:
+		scene = std::shared_ptr<Scene>(new Scene(name));
+		break;
+
 	default:
 		scene = std::shared_ptr<Scene>(new Scene(name));
 		break;

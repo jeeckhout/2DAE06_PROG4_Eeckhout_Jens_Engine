@@ -183,9 +183,37 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AttackCommand.h" />
+    <ClInclude Include="AttackState.h" />
+    <ClInclude Include="DownCommand.h" />
+    <ClInclude Include="HitState.h" />
+    <ClInclude Include="IdleCommand.h" />
+    <ClInclude Include="IdleState.h" />
+    <ClInclude Include="LeftCommand.h" />
+    <ClInclude Include="LookDownState.h" />
+    <ClInclude Include="LookLeftState.h" />
+    <ClInclude Include="LookRightState.h" />
+    <ClInclude Include="LookUpState.h" />
+    <ClInclude Include="MovingState.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PengoScene.h" />
+    <ClInclude Include="RightCommand.h" />
+    <ClInclude Include="StopAttackCommand.h" />
+    <ClInclude Include="UpCommand.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AttackCommand.cpp" />
+    <ClCompile Include="AttackState.cpp" />
+    <ClCompile Include="DownCommand.cpp" />
+    <ClCompile Include="HitState.cpp" />
+    <ClCompile Include="IdleCommand.cpp" />
+    <ClCompile Include="IdleState.cpp" />
+    <ClCompile Include="LeftCommand.cpp" />
+    <ClCompile Include="LookDownState.cpp" />
+    <ClCompile Include="LookLeftState.cpp" />
+    <ClCompile Include="LookRightState.cpp" />
+    <ClCompile Include="LookUpState.cpp" />
+    <ClCompile Include="MovingState.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -193,6 +221,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Pengo.cpp" />
+    <ClCompile Include="PengoScene.cpp" />
+    <ClCompile Include="RightCommand.cpp" />
+    <ClCompile Include="StopAttackCommand.cpp" />
+    <ClCompile Include="UpCommand.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

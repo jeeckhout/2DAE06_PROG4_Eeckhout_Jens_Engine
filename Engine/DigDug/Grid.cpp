@@ -40,26 +40,6 @@ void Grid::CreateGrid()
 		for (int currCol = 0; currCol < m_Cols; ++currCol)
 		{
 			int currPos = (currRow * m_Cols) + currCol;
-			if (currRow > 0)
-			{
-				m_CurrType = BlockType::Layer1;
-			}
-			if (currRow > m_Rows / 4)
-			{
-				m_CurrType = BlockType::Layer2;
-			}
-			if(currRow > m_Rows / 2)
-			{
-				m_CurrType = BlockType::Layer3;
-			}
-			if(currRow > m_Rows - m_Rows / 4)
-			{
-				m_CurrType = BlockType::Layer4;
-			}
-			else if(currRow == 0) 
-			{
-				m_CurrType = BlockType::Air;
-			}
 
 			m_pGrid[currPos].CreateObject(m_CurrType);
 

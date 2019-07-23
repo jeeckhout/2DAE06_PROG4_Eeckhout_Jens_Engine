@@ -4,15 +4,15 @@
 class Command;
 enum class ObjectType
 {
-	Player,
-	Fygar
+	Pengo,
+	Enemy
 };
 
 class InputComponent final : public BaseComponent
 {
 public:
 	InputComponent(dae::GameObject *parent, int ID, ObjectType type);
-	~InputComponent();
+	~InputComponent() = default;
 	void Update(const float& deltaTime, float x, float y, float width, float height) override;
 	void Render() override{;};
 
