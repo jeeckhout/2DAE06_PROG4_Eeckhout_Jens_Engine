@@ -1,18 +1,2 @@
-﻿  AttackCommand.cpp
-  AttackState.cpp
-  DownCommand.cpp
-  HitState.cpp
-  IdleCommand.cpp
-  IdleState.cpp
-  LeftCommand.cpp
-  LookDownState.cpp
-  LookLeftState.cpp
-  LookRightState.cpp
-  LookUpState.cpp
-  MovingState.cpp
-  PengoScene.cpp
-  RightCommand.cpp
-  StopAttackCommand.cpp
-  UpCommand.cpp
-  Generating Code...
-  Pengo.vcxproj -> E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\x64\Debug\Pengo.exe
+﻿  PengoScene.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\winnt.h(154): fatal error C1189: #error:  "No Target Architecture"

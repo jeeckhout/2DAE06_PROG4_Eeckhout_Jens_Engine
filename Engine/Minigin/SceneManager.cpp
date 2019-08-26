@@ -1,6 +1,7 @@
 #include "MiniginPCH.h"
 #include "SceneManager.h"
 #include "Scene.h"
+#include "../Pengo/PengoScene.h"
 
 
 void dae::SceneManager::Update(float deltaTime)
@@ -29,7 +30,7 @@ void dae::SceneManager::CreateScene(const std::string& name,SceneType type)
 		break;
 
 	case SceneType::PengoLevel:
-		scene = std::shared_ptr<Scene>(new Scene(name));
+		scene = std::shared_ptr<Scene>(new PengoScene(name));
 		break;
 
 	default:

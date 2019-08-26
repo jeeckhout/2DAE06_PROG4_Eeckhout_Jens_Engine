@@ -17,11 +17,12 @@ enum class Action
 class PookaComponent final : public BaseComponent
 {
 public:
-	PookaComponent(dae::GameObject *parent);
+	PookaComponent(dae::GameObject *parent,bool active, float activationTime);
 	~PookaComponent() = default;
 	void Update(const float& deltaTime, float, float, float, float) override;
 	void Render() override {;};
-	void StopMovement();
+		void StopMovement();
+
 private:
 	float m_ActionTimer{};
 	float2 m_Velocity{100.f,100.f};
@@ -31,5 +32,7 @@ private:
 	void MoveDown(const float& deltaTime);
 	void MoveRight(const float& deltaTime);
 	void MoveLeft(const float& deltaTime);
+	bool m_IsActive{true};
+	float m_TimeUntilActive{};
 };
 

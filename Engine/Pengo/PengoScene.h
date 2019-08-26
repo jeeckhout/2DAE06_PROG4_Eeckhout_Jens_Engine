@@ -2,6 +2,12 @@
 #include "Scene.h"
 #include "memory"
 class Grid;
+class RightCommand;
+class LeftCommand;
+class UpCommand;
+class DownCommand;
+class AttackCommand;
+
 namespace dae
 {
 	class GameObject;
@@ -18,5 +24,17 @@ private:
 	std::shared_ptr<dae::GameObject> Player1{};
 	std::shared_ptr<dae::GameObject> Player2{};
 	bool m_HasChosenMode{false};
+	RightCommand* cmdRight{};
+	LeftCommand* cmdLeft{};
+	UpCommand* cmdUp{};
+	DownCommand* cmdDown{};
+	AttackCommand* cmdAttack{};
+
+public:
+	void Initialize() override;
+	void CreateCoop();
+	void CreateSingle();
+	void CreateVersus();
+	void CreateLevel();
 };
 

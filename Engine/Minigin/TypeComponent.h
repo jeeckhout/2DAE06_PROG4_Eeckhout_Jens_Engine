@@ -4,15 +4,12 @@
 enum class GameObjectType
 {
 	Player,
-	Flame,
-	Pump,
-	Fygar,
-	Pooka,
-	Layer1Block,
-	Layer2Block,
-	Layer3Block,
-	Layer4Block,
+	Snowbee,
+	IceBlock,
+	EggBlock,
+	SpecialBlock,
 	AirBlock,
+	Wire
 };
 class TypeComponent :
 	public BaseComponent

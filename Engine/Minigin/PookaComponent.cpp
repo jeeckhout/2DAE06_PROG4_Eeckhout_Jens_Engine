@@ -1,89 +1,108 @@
 #include "MiniginPCH.h"
 #include "PookaComponent.h"
 #include "GameObject.h"
+#include "TypeComponent.h"
 
-PookaComponent::PookaComponent(dae::GameObject* parent)
+PookaComponent::PookaComponent(dae::GameObject* parent,bool active, float activationTime)
 	:BaseComponent(parent)
+	,m_IsActive(active)
+	,m_TimeUntilActive(activationTime)
 {
 }
 
 void PookaComponent::Update(const float& deltaTime, float, float, float, float)
 {
-	if (!m_IsPerformingAction)
+	if (m_IsActive)
 	{
-		const int randNum = rand() % 4;
-		switch (randNum)
+		if (!m_IsPerformingAction)
 		{
-			case 0:
-				m_Velocity.x = 100.f;
-				m_Velocity.y = 100.f;
-				MoveUp(deltaTime);
-				m_CurrAction = Action::Up;
-				m_ActionTimer = 1.f;
+			const int randNum = rand() % 4;
+			switch (randNum)
+			{
+				case 0:
+					m_Velocity.x = 100.f;
+					m_Velocity.y = 100.f;
+					MoveUp(deltaTime);
+					m_CurrAction = Action::Up;
+					m_ActionTimer = 1.f;
+					break;
+
+				case 1:
+					m_Velocity.x = 100.f;
+					m_Velocity.y = 100.f;
+					MoveDown(deltaTime);
+					m_CurrAction = Action::Down;
+					m_ActionTimer = 1.f;
+					break;
+
+				case 2:
+					m_Velocity.x = 100.f;
+					m_Velocity.y = 100.f;
+					MoveRight(deltaTime);
+					m_CurrAction = Action::Right;
+					m_ActionTimer = 1.f;
+					break;
+
+				case 3:
+					m_Velocity.x = 100.f;
+					m_Velocity.y = 100.f;
+					MoveLeft(deltaTime);
+					m_CurrAction = Action::Left;
+					m_ActionTimer = 1.f;
+					break;
+
+				default:
 				break;
+			}
+		}
+	
+		else
+		{
+			switch (m_CurrAction)
+			{
+				case  Action::Up:
+					MoveUp(deltaTime);
+					break;
 
-			case 1:
-				m_Velocity.x = 100.f;
-				m_Velocity.y = 100.f;
-				MoveDown(deltaTime);
-				m_CurrAction = Action::Down;
-				m_ActionTimer = 1.f;
-				break;
+				case Action::Down:
+					MoveDown(deltaTime);
+					break;
 
-			case 2:
-				m_Velocity.x = 100.f;
-				m_Velocity.y = 100.f;
-				MoveRight(deltaTime);
-				m_CurrAction = Action::Right;
-				m_ActionTimer = 1.f;
-				break;
+				case Action::Left:
+					MoveLeft(deltaTime);
+					break;
 
-			case 3:
-				m_Velocity.x = 100.f;
-				m_Velocity.y = 100.f;
-				MoveLeft(deltaTime);
-				m_CurrAction = Action::Left;
-				m_ActionTimer = 1.f;
-				break;
 
-			default:
-			break;
-
+				case Action::Right:
+					MoveRight(deltaTime);
+					break;
+			}
+			m_ActionTimer -= deltaTime;
+			if (m_ActionTimer <= 0)
+			{
+				m_IsPerformingAction = false;
+			}
 		}
 	}
 	else
 	{
-		switch (m_CurrAction)
+		m_TimeUntilActive -= deltaTime;
+		if (m_TimeUntilActive <= 0.f)
 		{
-			case  Action::Up:
-				MoveUp(deltaTime);
-				break;
-
-			case Action::Down:
-				MoveDown(deltaTime);
-				break;
-
-			case Action::Left:
-				MoveLeft(deltaTime);
-				break;
-
-
-			case Action::Right:
-				MoveRight(deltaTime);
-				break;
-		}
-		m_ActionTimer -= deltaTime;
-		if (m_ActionTimer <= 0)
-		{
-			m_IsPerformingAction = false;
+			m_IsActive = true;
+			auto components = m_pParent->GetComponents();
+			TypeComponent* pTypeComp{};
+			for(BaseComponent* pComp : components)
+			{
+				pTypeComp = dynamic_cast<TypeComponent*>(pComp);
+			}
+			if (pTypeComp)
+			{
+				pTypeComp->SetType(GameObjectType::Snowbee);
+				m_pParent->UpdateTexture("PookaSprite.png");
+			}
 		}
 	}
-}
-
-void PookaComponent::StopMovement()
-{
-	m_Velocity.x = 0;
-	m_Velocity.y = 0;
 }
 
 void PookaComponent::MoveUp(const float& deltaTime)
@@ -144,4 +163,10 @@ void PookaComponent::MoveLeft(const float& deltaTime)
 		currPos.x = 0;
 		m_pParent->SetPosition(currPos.x,currPos.y);
 	}
+}
+
+void PookaComponent::StopMovement()
+{
+	m_Velocity.x = 0;
+	m_Velocity.y = 0;
 }

@@ -3,7 +3,6 @@
 #include "GameObject.h"
 #include "TypeComponent.h"
 #include "PookaComponent.h"
-#include "FygarComponent.h"
 
 
 CollisionComponent::CollisionComponent(dae::GameObject *parent)
@@ -32,55 +31,49 @@ void CollisionComponent::Update(const float&, float, float, float, float)
 				if (object->GetPosition().y + objectRect->h < m_pParent->GetPosition().y + parentRect->h * 1.5
 				&& object->GetPosition().y - objectRect->h > m_pParent->GetPosition().y - parentRect->h * 1.5)
 				{
-					if ((m_pParent->GetTypeComp()))
+					bool HasTypeComp{false};
+					TypeComponent* pTypeComp{};
+					for(BaseComponent* pComp : m_pParent->GetComponents())
 					{
-						if (m_pParent->GetTypeComp()->GetType() == GameObjectType::Layer1Block
-							|| m_pParent->GetTypeComp()->GetType() == GameObjectType::Layer2Block
-							|| m_pParent->GetTypeComp()->GetType() == GameObjectType::Layer3Block
-							|| m_pParent->GetTypeComp()->GetType() == GameObjectType::Layer4Block)
+						pTypeComp = dynamic_cast<TypeComponent*>(pComp);
+						if (pTypeComp)
 						{
-							if(object->GetTypeComp()->GetType() == GameObjectType::Player)
-							{
-								m_pParent->UpdateTexture("AirBlock.png");
-								m_pParent->GetTypeComp()->SetType(GameObjectType::AirBlock);
-							}
-							else
-							{
-								if (object->GetPookaComp())
+							HasTypeComp = true;
+						}
+					}
+					if (HasTypeComp)
+					{
+						if (pTypeComp->GetType() == GameObjectType::EggBlock
+							|| pTypeComp->GetType() == GameObjectType::IceBlock
+							|| pTypeComp->GetType() == GameObjectType::SpecialBlock
+							|| pTypeComp->GetType() == GameObjectType::Snowbee
+							|| pTypeComp->GetType() == GameObjectType::Wire)
+						{
+								
+								bool HasEnemyComp{false};
+								PookaComponent* pEnemyComp{};
+								for(BaseComponent* pComp : object->GetComponents())
 								{
-									object->GetPookaComp()->StopMovement();
+									pEnemyComp = dynamic_cast<PookaComponent*>(pComp);
+									if(pEnemyComp)
+									{
+										HasEnemyComp = true;
+									}
 								}
-								if(object->GetFygarComp())
+								if (HasEnemyComp)
 								{
-									object->GetFygarComp()->StopMovement();
+									pEnemyComp->StopMovement();
 								}
-							}
 						}
 
-						else if((m_pParent->GetTypeComp()->GetType() == GameObjectType::Pooka ||
-							m_pParent->GetTypeComp()->GetType() == GameObjectType::Fygar ||
-							m_pParent->GetTypeComp()->GetType() == GameObjectType::Flame) &&
-							object->GetTypeComp()->GetType() == GameObjectType::Player)
-						{
-							object->SetPosition(0,0);
-						}
-
-						else if(m_pParent->GetTypeComp()->GetType() == GameObjectType::Pump &&
-							(object->GetTypeComp()->GetType() == GameObjectType::Pooka ||
-							object->GetTypeComp()->GetType() == GameObjectType::Fygar))
-						{
-							object->DeactivateTextureRendering();
-							if (object->GetTypeComp()->GetType() == GameObjectType::Fygar)
-							{
-								 auto testFire = object->GetFygarComp();
-								if(testFire)
-								{
-									testFire->StopFire();
-									testFire->StopMovement();
-								}
-							}
-							object->GetTypeComp()->SetType(GameObjectType::AirBlock);
-						}
+						//else if((m_pParent->GetTypeComp()->GetType() == GameObjectType::Pooka ||
+						//	m_pParent->GetTypeComp()->GetType() == GameObjectType::Fygar ||
+						//	m_pParent->GetTypeComp()->GetType() == GameObjectType::Flame) &&
+						//	object->GetTypeComp()->GetType() == GameObjectType::Player)
+						//{
+						//	object->SetPosition(0,0);
+						//}
+						
 					}
 				}
 			}

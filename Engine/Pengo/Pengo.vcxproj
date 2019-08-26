@@ -185,7 +185,9 @@
   <ItemGroup>
     <ClInclude Include="AttackCommand.h" />
     <ClInclude Include="AttackState.h" />
+    <ClInclude Include="Block.h" />
     <ClInclude Include="DownCommand.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="HitState.h" />
     <ClInclude Include="IdleCommand.h" />
     <ClInclude Include="IdleState.h" />
@@ -204,7 +206,9 @@
   <ItemGroup>
     <ClCompile Include="AttackCommand.cpp" />
     <ClCompile Include="AttackState.cpp" />
+    <ClCompile Include="Block.cpp" />
     <ClCompile Include="DownCommand.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="HitState.cpp" />
     <ClCompile Include="IdleCommand.cpp" />
     <ClCompile Include="IdleState.cpp" />
