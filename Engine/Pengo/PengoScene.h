@@ -7,6 +7,7 @@ class LeftCommand;
 class UpCommand;
 class DownCommand;
 class AttackCommand;
+class Observer;
 
 namespace dae
 {
@@ -29,7 +30,7 @@ private:
 	UpCommand* cmdUp{};
 	DownCommand* cmdDown{};
 	AttackCommand* cmdAttack{};
-
+	Observer* m_pScore;
 public:
 	void Initialize() override;
 	void CreateCoop();

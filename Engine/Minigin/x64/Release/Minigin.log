@@ -1,10 +1,4 @@
-﻿  BaseComponent.cpp
-  GameObject.cpp
-  InputComponent.cpp
-  InputManager.cpp
-  Minigin.cpp
-  Scene.cpp
-  Minigin.vcxproj -> E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\x64\Release\Minigin.lib
+﻿  Minigin.vcxproj -> E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\x64\Release\Minigin.lib
   E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\3rdParty\SDL2\lib\x64\SDL2.dll
   1 File(s) copied
   E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\3rdParty\SDL2_image\lib\x64\libjpeg-9.dll

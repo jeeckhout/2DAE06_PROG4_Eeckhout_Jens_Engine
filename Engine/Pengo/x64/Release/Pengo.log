@@ -1,38 +1,4 @@
-﻿  PengoScene.cpp
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scenemanager.h(18): error C2039: 'string': is not a member of 'std'
-  e:\documents\programming4\prog4_minigin_retake\engine\pengo\predefined c++ types (compiler internal)(257): note: see declaration of 'std'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scenemanager.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scenemanager.h(18): error C2143: syntax error: missing ',' before '&'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scenemanager.h(24): error C2039: 'vector': is not a member of 'std'
-  e:\documents\programming4\prog4_minigin_retake\engine\pengo\predefined c++ types (compiler internal)(257): note: see declaration of 'std'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scenemanager.h(24): error C2143: syntax error: missing ';' before '<'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scenemanager.h(24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scenemanager.h(24): error C2039: 'shared_ptr': is not a member of 'std'
-  e:\documents\programming4\prog4_minigin_retake\engine\pengo\predefined c++ types (compiler internal)(257): note: see declaration of 'std'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scenemanager.h(24): error C2238: unexpected token(s) preceding ';'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(9): error C2039: 'string': is not a member of 'std'
-  e:\documents\programming4\prog4_minigin_retake\engine\pengo\predefined c++ types (compiler internal)(257): note: see declaration of 'std'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(9): error C2143: syntax error: missing ',' before '&'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(11): error C2039: 'shared_ptr': is not a member of 'std'
-  e:\documents\programming4\prog4_minigin_retake\engine\pengo\predefined c++ types (compiler internal)(257): note: see declaration of 'std'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(11): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(11): error C2143: syntax error: missing ',' before '<'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(23): error C2039: 'string': is not a member of 'std'
-  e:\documents\programming4\prog4_minigin_retake\engine\pengo\predefined c++ types (compiler internal)(257): note: see declaration of 'std'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(23): error C3646: 'mName': unknown override specifier
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(23): error C2059: syntax error: '{'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(23): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(24): error C2039: 'string': is not a member of 'std'
-  e:\documents\programming4\prog4_minigin_retake\engine\pengo\predefined c++ types (compiler internal)(257): note: see declaration of 'std'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(24): error C2143: syntax error: missing ',' before '&'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(25): error C2039: 'vector': is not a member of 'std'
-  e:\documents\programming4\prog4_minigin_retake\engine\pengo\predefined c++ types (compiler internal)(257): note: see declaration of 'std'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(25): error C2143: syntax error: missing ';' before '<'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(25): error C2039: 'shared_ptr': is not a member of 'std'
-  e:\documents\programming4\prog4_minigin_retake\engine\pengo\predefined c++ types (compiler internal)(257): note: see declaration of 'std'
-e:\documents\programming4\prog4_minigin_retake\engine\minigin\scene.h(25): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-e:\documents\programming4\prog4_minigin_retake\engine\pengo\pengoscene.cpp(5): error C2664: 'dae::Scene::Scene(const dae::Scene &)': cannot convert argument 1 from 'const std::string' to 'const int'
-  e:\documents\programming4\prog4_minigin_retake\engine\pengo\pengoscene.cpp(6): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+﻿  Generating code
+  All 1111 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Pengo.vcxproj -> E:\Documents\Programming4\Prog4_Minigin_Retake\Engine\x64\Release\Pengo.exe

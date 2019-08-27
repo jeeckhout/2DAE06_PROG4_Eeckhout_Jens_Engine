@@ -7,7 +7,7 @@
 #include "LookRightState.h"
 #include "IdleState.h"
 #include "StateComponent.h"
-#include <TypeComponent.h>
+#include "TypeComponent.h"
 #include "InputComponent.h"
 #include "TextureComponent.h"
 #include "GameObject.h"
@@ -18,8 +18,8 @@
 #include "AttackCommand.h"
 #include "CollisionComponent.h"
 #include "PookaComponent.h"
-
-
+#include "Score.h"
+#include "Subject.h"
 PengoScene::PengoScene(const std::string& name) : Scene(name)
 {
 }
@@ -39,10 +39,17 @@ PengoScene::~PengoScene()
 
 	delete m_pGrid;
 	m_pGrid = nullptr;
+
+	delete m_pScore;
+	m_pScore = nullptr;
 }
 
 void PengoScene::Initialize()
 {
+
+
+	m_pScore = new Score{};
+
 	//SET UP CONTROLS
 	cmdRight = new RightCommand{};
 	cmdLeft = new LeftCommand{};
@@ -152,15 +159,12 @@ void PengoScene::CreateVersus()
 	this->Add(Player1);
 	
 	Player2 = std::make_shared<dae::GameObject>();
-	auto text2 = new TextureComponent{Player2.get(),"FygarSprite.png"};
+	auto text2 = new TextureComponent{Player2.get(),"PookaSprite.png"};
 	auto input2 = new InputComponent{Player2.get(),1,ObjectType::Pengo};
 	auto type2 = new TypeComponent{Player2.get(),GameObjectType::Snowbee};
 	auto state2 = new StateComponent{Player2.get(), new IdleState{}, new LookRightState{}};
-	CollisionComponent* FygarCollision1 = new CollisionComponent{Player2.get()};
-	FygarCollision1->SetObjectsToCheck(Player1.get());
 	text2->Update(0,0,0,25,25);
 	Player2->AddComponentToVector(text2);
-	Player2->AddComponentToVector(FygarCollision1);
 	Player2->AddComponentToVector(input2);
 	Player2->AddComponentToVector(type2);
 	Player2->AddComponentToVector(state2);
@@ -217,6 +221,9 @@ void PengoScene::CreateLevel()
 
 	CollisionComponent* PookaCollision2 = new CollisionComponent{PookaEnemy2.get()};
 	PookaComponent* PookaAI2 = new PookaComponent{PookaEnemy2.get(),false,10.f};
+	
+	PookaAI2->GetSubject()->AddObserver(m_pScore);
+
 	TypeComponent* pookaType2 = new TypeComponent{PookaEnemy2.get(),GameObjectType::EggBlock};
 	if (Player1)
 	{
